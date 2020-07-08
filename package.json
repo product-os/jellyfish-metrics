@@ -19,7 +19,6 @@
     "@balena/jellyfish-logger": "0.0.4",
     "@balena/node-metrics-gatherer": "^5.7.2",
     "express": "^4.17.1",
-    "http": "0.0.1-security",
     "lodash": "^4.17.15"
   },
   "devDependencies": {
