@@ -18,6 +18,8 @@ metrics.markCardReadFromDatabase(card)
 
 # Documentation
 
+- [**Adding metrics**](https://github.com/product-os/jellyfish-metrics/blob/master/doc/adding-metrics.markdown)
+
 A module that gathers and exposes Prometheus metrics.
 
 
