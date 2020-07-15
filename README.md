@@ -25,6 +25,7 @@ A module that gathers and exposes Prometheus metrics.
 
 * [metrics](#module_metrics)
     * _static_
+        * [.actorFromContext(context)](#module_metrics.actorFromContext) ⇒ <code>String</code>
         * [.initExpress(context)](#module_metrics.initExpress) ⇒ <code>Object</code>
         * [.startServer(context, port)](#module_metrics.startServer)
         * [.markCardInsert(card)](#module_metrics.markCardInsert)
@@ -53,9 +54,23 @@ A module that gathers and exposes Prometheus metrics.
     * _inner_
         * [~measureAsync(name, labels, fn)](#module_metrics..measureAsync) ⇒ <code>Any</code>
         * [~isCard(card)](#module_metrics..isCard) ⇒ <code>Boolean</code>
-        * [~actorFromContext(context)](#module_metrics..actorFromContext) ⇒ <code>String</code>
         * [~getAsyncMeasureFn(prefix)](#module_metrics..getAsyncMeasureFn) ⇒ <code>Any</code>
 
+<a name="module_metrics.actorFromContext"></a>
+
+### metrics.actorFromContext(context) ⇒ <code>String</code>
+**Kind**: static method of [<code>metrics</code>](#module_metrics)  
+**Summary**: Extract actor name from context ID  
+**Returns**: <code>String</code> - actor name  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| context | <code>Object</code> | caller context |
+
+**Example**  
+```js
+const actorName = exports.actorFromContext(context)
+```
 <a name="module_metrics.initExpress"></a>
 
 ### metrics.initExpress(context) ⇒ <code>Object</code>
@@ -376,7 +391,7 @@ metrics.markStreamClosed(context, 'cards')
 
 **Example**  
 ```js
-metrics.markStreamLinkQuery(context, change)
+metrics.markStreamLinkQuery(context, 'cards', change)
 ```
 <a name="module_metrics.markStreamError"></a>
 
@@ -424,21 +439,6 @@ const result = await measureAsync('my_metric', { ... }, myFunction, ...params)
 **Example**  
 ```js
 const result = isCard(card)
-```
-<a name="module_metrics..actorFromContext"></a>
-
-### metrics~actorFromContext(context) ⇒ <code>String</code>
-**Kind**: inner method of [<code>metrics</code>](#module_metrics)  
-**Summary**: Extract actor name from context ID  
-**Returns**: <code>String</code> - actor name  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| context | <code>Object</code> | caller context |
-
-**Example**  
-```js
-const actorName = actorFromContext(context)
 ```
 <a name="module_metrics..getAsyncMeasureFn"></a>
 
