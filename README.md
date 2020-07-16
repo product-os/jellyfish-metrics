@@ -25,7 +25,6 @@ A module that gathers and exposes Prometheus metrics.
 
 * [metrics](#module_metrics)
     * _static_
-        * [.toSeconds(ms)](#module_metrics.toSeconds) ⇒ <code>Number</code>
         * [.initExpress(context)](#module_metrics.initExpress) ⇒ <code>Object</code>
         * [.startServer(context, port)](#module_metrics.startServer)
         * [.markCardInsert(card)](#module_metrics.markCardInsert)
@@ -57,21 +56,6 @@ A module that gathers and exposes Prometheus metrics.
         * [~actorFromContext(context)](#module_metrics..actorFromContext) ⇒ <code>String</code>
         * [~getAsyncMeasureFn(prefix)](#module_metrics..getAsyncMeasureFn) ⇒ <code>Any</code>
 
-<a name="module_metrics.toSeconds"></a>
-
-### metrics.toSeconds(ms) ⇒ <code>Number</code>
-**Kind**: static method of [<code>metrics</code>](#module_metrics)  
-**Summary**: Convert milliseconds to seconds  
-**Returns**: <code>Number</code> - seconds with fixed point notation of 4  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| ms | <code>Number</code> | milliseconds |
-
-**Example**  
-```js
-const seconds = toSeconds(ms)
-```
 <a name="module_metrics.initExpress"></a>
 
 ### metrics.initExpress(context) ⇒ <code>Object</code>
