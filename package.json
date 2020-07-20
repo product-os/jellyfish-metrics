@@ -1,6 +1,6 @@
 {
   "name": "@balena/jellyfish-metrics",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "Metrics library for Jellyfish",
   "main": "lib/index.js",
   "directories": {
