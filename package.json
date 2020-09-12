@@ -29,7 +29,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@balena/jellyfish-environment": "^2.2.23",
-    "@balena/jellyfish-logger": "^0.0.80",
+    "@balena/jellyfish-logger": "^0.0.81",
     "@balena/node-metrics-gatherer": "^5.7.3",
     "express": "^4.17.1",
     "lodash": "^4.17.20"
@@ -44,7 +44,7 @@
     "eslint": "^7.8.1",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsdoc": "^30.4.1",
+    "eslint-plugin-jsdoc": "^30.4.2",
     "eslint-plugin-lodash": "^7.1.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
