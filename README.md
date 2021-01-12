@@ -26,7 +26,7 @@ A module that gathers and exposes Prometheus metrics.
 * [metrics](#module_metrics)
     * _static_
         * [.actorFromContext(context)](#module_metrics.actorFromContext) ⇒ <code>String</code>
-        * [.initExpress(context)](#module_metrics.initExpress) ⇒ <code>Object</code>
+        * [.initExpress()](#module_metrics.initExpress) ⇒ <code>Object</code>
         * [.startServer(context, port)](#module_metrics.startServer)
         * [.markCardInsert(card)](#module_metrics.markCardInsert)
         * [.markCardUpsert(card)](#module_metrics.markCardUpsert)
@@ -51,10 +51,11 @@ A module that gathers and exposes Prometheus metrics.
         * [.markStreamClosed(context, table)](#module_metrics.markStreamClosed)
         * [.markStreamLinkQuery(context, table, change)](#module_metrics.markStreamLinkQuery)
         * [.markStreamError(context, table)](#module_metrics.markStreamError)
+        * [.measureCardPatch(fn)](#module_metrics.measureCardPatch) ⇒ <code>Any</code>
     * _inner_
         * [~measureAsync(name, labels, fn)](#module_metrics..measureAsync) ⇒ <code>Any</code>
         * [~isCard(card)](#module_metrics..isCard) ⇒ <code>Boolean</code>
-        * [~getAsyncMeasureFn(prefix)](#module_metrics..getAsyncMeasureFn) ⇒ <code>Any</code>
+        * [~getAsyncMeasureFn(prefix, labels)](#module_metrics..getAsyncMeasureFn) ⇒ <code>Any</code>
 
 <a name="module_metrics.actorFromContext"></a>
 
@@ -73,15 +74,10 @@ const actorName = exports.actorFromContext(context)
 ```
 <a name="module_metrics.initExpress"></a>
 
-### metrics.initExpress(context) ⇒ <code>Object</code>
+### metrics.initExpress() ⇒ <code>Object</code>
 **Kind**: static method of [<code>metrics</code>](#module_metrics)  
 **Summary**: Create express app using metrics and expose data on /metrics  
 **Returns**: <code>Object</code> - express app  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| context | <code>Object</code> | execution context |
-
 **Example**  
 ```js
 const application = metrics.initExpress(context)
@@ -408,6 +404,21 @@ metrics.markStreamLinkQuery(context, 'cards', change)
 ```js
 metrics.markStreamError()
 ```
+<a name="module_metrics.measureCardPatch"></a>
+
+### metrics.measureCardPatch(fn) ⇒ <code>Any</code>
+**Kind**: static method of [<code>metrics</code>](#module_metrics)  
+**Summary**: Execute a card patch, marking duration and totals  
+**Returns**: <code>Any</code> - card patch result  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| fn | <code>Promise</code> | card patch function to execute |
+
+**Example**  
+```js
+const result = await metrics.measureCardPatch(fn)
+```
 <a name="module_metrics..measureAsync"></a>
 
 ### metrics~measureAsync(name, labels, fn) ⇒ <code>Any</code>
@@ -418,7 +429,7 @@ metrics.markStreamError()
 | Param | Type | Description |
 | --- | --- | --- |
 | name | <code>String</code> | metric name |
-| labels | <code>Object</code> \| <code>Undefined</code> | metric labels |
+| labels | <code>Object</code> \| <code>function</code> | metric labels object or callback that returns labels object |
 | fn | <code>Promise</code> | function to execute and measure |
 
 **Example**  
@@ -442,7 +453,7 @@ const result = isCard(card)
 ```
 <a name="module_metrics..getAsyncMeasureFn"></a>
 
-### metrics~getAsyncMeasureFn(prefix) ⇒ <code>Any</code>
+### metrics~getAsyncMeasureFn(prefix, labels) ⇒ <code>Any</code>
 **Kind**: inner method of [<code>metrics</code>](#module_metrics)  
 **Summary**: Generates a generic measurement wrapper for an async function, that
 tracks total calls, total failures and duration  
@@ -451,4 +462,5 @@ tracks total calls, total failures and duration
 | Param | Type | Description |
 | --- | --- | --- |
 | prefix | <code>String</code> | metric name prefix |
+| labels | <code>Object</code> \| <code>function</code> | metric labels object or callback that returns labels object |
 
