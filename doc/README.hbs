@@ -1,6 +1,6 @@
 # Jellyfish Metrics
 
-This library gathers Prometheus metrics and exposes them to be scraped by balena-monitor.
+This library gathers Prometheus metrics and exposes them to be scraped by [balena-monitor](https://github.com/balena-io/balena-monitor).
 
 # Usage
 
