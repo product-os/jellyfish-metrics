@@ -1,0 +1,4 @@
+type: 'node'
+upstream:
+  - repo: 'jellycheck'
+    url: 'https://github.com/product-os/jellycheck'
