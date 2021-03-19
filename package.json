@@ -30,7 +30,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@balena/jellyfish-environment": "^3.0.0",
-    "@balena/jellyfish-logger": "^1.0.53",
+    "@balena/jellyfish-logger": "2.0.0-typescript-d557c401206bc3d80b4734f0864ba7c222bf5e77",
     "@balena/node-metrics-gatherer": "^5.7.3",
     "express": "^4.17.1",
     "lodash": "^4.17.21"
