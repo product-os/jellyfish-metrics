@@ -10,22 +10,10 @@ import { Contract } from '@balena/jellyfish-types/build/core';
 import { metrics } from '@balena/node-metrics-gatherer';
 import { LabelSet } from '@balena/node-metrics-gatherer/out/types';
 import * as express from 'express';
-import { createServer } from 'http';
-import {
-	dropRight,
-	has,
-	isFunction,
-	isString,
-} from 'lodash';
-import {
-	describe,
-	Names,
-} from './descriptions';
-import {
-	Context,
-	MeasureMetricNames,
-	StreamChange,
-} from './types';
+import { createServer, Server } from 'http';
+import { dropRight, has, isFunction, isString } from 'lodash';
+import { describe, Names } from './descriptions';
+import { Context, MeasureMetricNames, StreamChange } from './types';
 import * as utils from './utils';
 
 export {
@@ -62,12 +50,18 @@ const logger = getLogger(__filename);
  * const result = await measureAsync('my_metric', { ... }, myFunction, ...params)
  * ```
  */
-async function measureAsync(name: string, labels: LabelSet | ((result: any) => LabelSet), fn: () => Promise<any>): Promise<any> {
+async function measureAsync(
+	name: string,
+	labels: LabelSet | ((result: any) => LabelSet),
+	fn: () => Promise<any>,
+): Promise<any> {
 	const start = new Date();
 	const result = await fn();
 	const end = new Date();
 	const duration = utils.toSeconds(end.getTime() - start.getTime());
-	const histogramLabels: LabelSet = (isFunction(labels)) ? labels(result) : labels;
+	const histogramLabels: LabelSet = isFunction(labels)
+		? labels(result)
+		: labels;
 	metrics.histogram(name, duration, histogramLabels);
 	return result;
 }
@@ -84,8 +78,8 @@ async function measureAsync(name: string, labels: LabelSet | ((result: any) => L
  * const actorName = actorFromContext(context);
  * ```
  */
-export function actorFromContext (context: Context): string {
-	if (has(context, [ 'id' ]) && isString(context.id)) {
+export function actorFromContext(context: Context): string {
+	if (has(context, ['id']) && isString(context.id)) {
 		return dropRight(context.id.split('-'), 6).join('-').toLowerCase();
 	}
 	return 'unknown';
@@ -101,7 +95,7 @@ export function actorFromContext (context: Context): string {
  * const application = metrics.initExpress();
  * ```
  */
-export function initExpress (): express.Application {
+export function initExpress(): express.Application {
 	return metrics.collectAPIMetrics(express());
 }
 
@@ -116,29 +110,38 @@ export function initExpress (): express.Application {
  *
  * @example
  * ```typescript
- * startServer(context, 9000);
+ * const server = startServer(context, 9000);
  * ```
  */
-export function startServer(context: object, port: number): void {
+export function startServer(context: object, port: number): Server {
 	describe();
-	const b64enc = Buffer.from(`monitor:${defaultEnvironment.metrics.token}`).toString('base64');
+	const b64enc = Buffer.from(
+		`monitor:${defaultEnvironment.metrics.token}`,
+	).toString('base64');
 	const isAuthorized = (req: express.Request) => {
 		return req.get('Authorization') === `Basic ${b64enc}`;
-	}
+	};
 	logger.info(context, `Starting metrics server on ${port}`);
 	const app = express();
 	const server = createServer(app);
 	app.use('/metrics', metrics.requestHandler(isAuthorized));
 	server.on('listening', () => {
-		logger.info(context, `Metrics server listening on port ${server.address()}`);
-	})
+		logger.info(
+			context,
+			`Metrics server listening on port ${server.address()}`,
+		);
+	});
 	server.on('error', (err: NodeJS.ErrnoException) => {
 		if (err.code === 'EADDRINUSE') {
-			logger.info(context, `Port ${port} is in use, starting metrics server on a random port`);
+			logger.info(
+				context,
+				`Port ${port} is in use, starting metrics server on a random port`,
+			);
 			server.listen(0);
 		}
 	});
 	server.listen(port);
+	return server;
 }
 
 /**
@@ -292,12 +295,18 @@ export function markJobAdd(action: string, id: string): void {
  * markJobDone(action, context.id, timestamp)
  * ```
  */
-export function markJobDone(action: string, id: string, timestamp: string): void {
+export function markJobDone(
+	action: string,
+	id: string,
+	timestamp: string,
+): void {
 	const labels: LabelSet = {
 		type: action,
 		worker: id,
 	};
-	const duration = utils.toSeconds(new Date().getTime() - new Date(timestamp).getTime());
+	const duration = utils.toSeconds(
+		new Date().getTime() - new Date(timestamp).getTime(),
+	);
 	metrics.histogram(Names.worker.jobDuration, duration, labels);
 	metrics.dec(Names.worker.saturation, 1, labels);
 }
@@ -315,15 +324,22 @@ export function markJobDone(action: string, id: string, timestamp: string): void
  * const result = await metrics.measureMirror('github', mirror());
  * ```
  */
-export async function measureMirror(integration: string, fn: () => Promise<any>): Promise<any> {
+export async function measureMirror(
+	integration: string,
+	fn: () => Promise<any>,
+): Promise<any> {
 	const labels: LabelSet = {
 		type: integration,
 	};
 	metrics.inc(Names.mirror.total, 1, labels);
-	const result = await measureAsync(Names.mirror.durationSeconds, labels, fn).catch((err: Error) => {
+	const result = await measureAsync(
+		Names.mirror.durationSeconds,
+		labels,
+		fn,
+	).catch((err: Error) => {
 		metrics.inc(Names.mirror.failureTotal, 1, labels);
 		throw err;
-	})
+	});
 	return result;
 }
 
@@ -338,12 +354,19 @@ export async function measureMirror(integration: string, fn: () => Promise<any>)
  * @example
  * const result = await metrics.measureTranslate('github', translate())
  */
-export async function measureTranslate(integration: string, fn: () => Promise<any>): Promise<any> {
+export async function measureTranslate(
+	integration: string,
+	fn: () => Promise<any>,
+): Promise<any> {
 	const labels: LabelSet = {
 		type: integration,
 	};
 	metrics.inc(Names.translate.total, 1, labels);
-	const results = await measureAsync(Names.translate.durationSeconds, labels, fn).catch((err: Error) => {
+	const results = await measureAsync(
+		Names.translate.durationSeconds,
+		labels,
+		fn,
+	).catch((err: Error) => {
 		metrics.inc(Names.translate.failureTotal, 1, labels);
 		throw err;
 	});
@@ -359,16 +382,23 @@ export async function measureTranslate(integration: string, fn: () => Promise<an
  * @param labels - metric labels object or callback that returns labels object
  * @returns {Any} api result
  */
-function getAsyncMeasureFn (metric: MeasureMetricNames, labels?: LabelSet | ((result: any) => LabelSet)): (fn: () => Promise<any>) => Promise<any> {
-	const metricLabels = (labels === undefined) ? {} : labels;
+function getAsyncMeasureFn(
+	metric: MeasureMetricNames,
+	labels?: LabelSet | ((result: any) => LabelSet),
+): (fn: () => Promise<any>) => Promise<any> {
+	const metricLabels = labels === undefined ? {} : labels;
 	return async (fn: () => Promise<any>): Promise<any> => {
 		metrics.inc(metric.total, 1);
-		const result = await measureAsync(metric.durationSeconds, metricLabels, fn).catch((err: Error) => {
+		const result = await measureAsync(
+			metric.durationSeconds,
+			metricLabels,
+			fn,
+		).catch((err: Error) => {
 			metrics.inc(metric.failureTotal, 1);
 			throw err;
 		});
 		return result;
-	}
+	};
 }
 
 /**
@@ -496,12 +526,22 @@ export function markStreamClosed(context: object, table: string): void {
  * markStreamLinkQuery(context, 'cards', change);
  * ```
  */
-export function markStreamLinkQuery(context: object, table: string, change: StreamChange): void {
+export function markStreamLinkQuery(
+	context: object,
+	table: string,
+	change: StreamChange,
+): void {
 	metrics.inc(Names.streams.total, 1, {
 		table,
 		actor: exports.actorFromContext(context),
-		type: (has(change, [ 'type' ]) && isString(change.type)) ? change.type.toLowerCase() : 'unknown',
-		card: (has(change, [ 'after', 'type' ]) && isString(change.after.type)) ? change.after.type.split('@')[0] : 'unknown',
+		type:
+			has(change, ['type']) && isString(change.type)
+				? change.type.toLowerCase()
+				: 'unknown',
+		card:
+			has(change, ['after', 'type']) && isString(change.after.type)
+				? change.after.type.split('@')[0]
+				: 'unknown',
 	});
 }
 
@@ -540,11 +580,9 @@ export async function measureCardPatch(fn: () => Promise<any>): Promise<any> {
 	const result = await getAsyncMeasureFn(Names.card.patch, (card: Contract) => {
 		return {
 			type: card.type.split('@')[0],
-		}
+		};
 	})(fn);
 	return result;
 }
 
-export {
-	MeasureMetricNames,
-};
+export { MeasureMetricNames };

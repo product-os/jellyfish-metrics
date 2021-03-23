@@ -4,15 +4,8 @@
  * Proprietary and confidential.
  */
 
-import {
-	metrics
-} from '@balena/node-metrics-gatherer';
-import {
-	Histogram,
-	MeasureMetricNames,
-	Metric,
-	MetricNames,
-} from './types';
+import { metrics } from '@balena/node-metrics-gatherer';
+import { Histogram, MeasureMetricNames, Metric, MetricNames } from './types';
 import * as utils from './utils';
 
 /**
@@ -32,22 +25,26 @@ export function getMeasureMetricNames(prefix: string): MeasureMetricNames {
 		total: `${prefix}_total`,
 		durationSeconds: `${prefix}_duration_seconds`,
 		failureTotal: `${prefix}_failure_total`,
-	}
+	};
 }
 
 /*
  * Latency buckets used with most histogram metrics
  */
-const latencyBuckets = metrics.client.exponentialBuckets(4, Math.SQRT2, 28).map((ms: number) => {
-	return utils.toSeconds(ms);
-})
+const latencyBuckets = metrics.client
+	.exponentialBuckets(4, Math.SQRT2, 28)
+	.map((ms: number) => {
+		return utils.toSeconds(ms);
+	});
 
 /*
  * Latency buckets used with SQL histogram metrics
  */
-const queryLatencyBuckets = metrics.client.exponentialBuckets(1, Math.SQRT2, 28).map((ms: number) => {
-	return utils.toSeconds(ms);
-});
+const queryLatencyBuckets = metrics.client
+	.exponentialBuckets(1, Math.SQRT2, 28)
+	.map((ms: number) => {
+		return utils.toSeconds(ms);
+	});
 
 /*
  * List of names for all defined metrics
@@ -95,9 +92,9 @@ export const Names: MetricNames = {
 		id: getMeasureMetricNames('jf_http_api_id'),
 		slug: getMeasureMetricNames('jf_http_api_slug'),
 		action: getMeasureMetricNames('jf_http_api_action'),
-		whoami: getMeasureMetricNames('jf_http_whoami'),
+		whoami: getMeasureMetricNames('jf_http_whoami_query'),
 	},
-}
+};
 
 /*
  * List of defined counter metrics
@@ -203,7 +200,7 @@ const counters: Metric[] = [
 		name: Names.backSync.total,
 		description: 'number of back syncs',
 	},
-]
+];
 
 /**
  * List of defined gauge metrics
@@ -221,7 +218,7 @@ const gauges: Metric[] = [
 		name: Names.streams.saturation,
 		description: 'number of streams open',
 	},
-]
+];
 
 /**
  * List of defined histogram metrics
@@ -229,32 +226,38 @@ const gauges: Metric[] = [
 const histograms: Histogram[] = [
 	{
 		name: Names.http.query.durationSeconds,
-		description: 'histogram of durations taken to process /query requests in seconds',
+		description:
+			'histogram of durations taken to process /query requests in seconds',
 		buckets: latencyBuckets,
 	},
 	{
 		name: Names.http.type.durationSeconds,
-		description: 'histogram of durations taken to process /type requests in seconds',
+		description:
+			'histogram of durations taken to process /type requests in seconds',
 		buckets: latencyBuckets,
 	},
 	{
 		name: Names.http.id.durationSeconds,
-		description: 'histogram of durations taken to process /id requests in seconds',
+		description:
+			'histogram of durations taken to process /id requests in seconds',
 		buckets: latencyBuckets,
 	},
 	{
 		name: Names.http.slug.durationSeconds,
-		description: 'histogram of durations taken to process /slug requests in seconds',
+		description:
+			'histogram of durations taken to process /slug requests in seconds',
 		buckets: latencyBuckets,
 	},
 	{
 		name: Names.http.action.durationSeconds,
-		description: 'histogram of durations taken to process /action requests in seconds',
+		description:
+			'histogram of durations taken to process /action requests in seconds',
 		buckets: latencyBuckets,
 	},
 	{
 		name: Names.http.whoami.durationSeconds,
-		description: 'histogram of durations taken to process /whoami requests in seconds',
+		description:
+			'histogram of durations taken to process /whoami requests in seconds',
 		buckets: latencyBuckets,
 	},
 	{
@@ -264,17 +267,20 @@ const histograms: Histogram[] = [
 	},
 	{
 		name: Names.translate.durationSeconds,
-		description: 'histogram of durations taken to run translate calls in seconds',
+		description:
+			'histogram of durations taken to run translate calls in seconds',
 		buckets: latencyBuckets,
 	},
 	{
 		name: Names.worker.jobDuration,
-		description: 'histogram of durations taken to complete worker jobs in seconds',
+		description:
+			'histogram of durations taken to complete worker jobs in seconds',
 		buckets: latencyBuckets,
 	},
 	{
 		name: Names.sql.gen.durationSeconds,
-		description: 'histogram of durations taken to generate sql with jsonschema2sql',
+		description:
+			'histogram of durations taken to generate sql with jsonschema2sql',
 		buckets: queryLatencyBuckets,
 	},
 	{
@@ -287,7 +293,7 @@ const histograms: Histogram[] = [
 		description: 'histogram of durations taken to patch cards in seconds',
 		buckets: latencyBuckets,
 	},
-]
+];
 
 /**
  * @summary Set descriptions for each metric
@@ -298,7 +304,7 @@ const histograms: Histogram[] = [
  * describe();
  * ```
  */
-export function describe (): void {
+export function describe(): void {
 	counters.forEach((counter) => {
 		if (!metrics.meta[counter.name]) {
 			metrics.describe.counter(counter.name, counter.description);
