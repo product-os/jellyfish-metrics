@@ -16,6 +16,6 @@
  * const seconds = toSeconds(ms);
  * ```
  */
-export function toSeconds (ms: number): number {
+export function toSeconds(ms: number): number {
 	return Number((ms / 1000).toFixed(4));
 }
