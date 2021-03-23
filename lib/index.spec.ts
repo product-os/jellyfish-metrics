@@ -40,8 +40,11 @@ import {
 } from './index';
 import { StreamChange } from './types';
 
-async function generateCard(): Promise<Contract> {
-	return {
+// TODO: Add jsdoc and define local type for testContext instead of "any".
+let testContext: any = {};
+beforeAll(async () => {
+	// Prepare fake cards/data for tests.
+	const beforeCard: Contract = {
 		id: await random(),
 		version: '1.0.0',
 		slug: `card-${await random()}`,
@@ -49,6 +52,7 @@ async function generateCard(): Promise<Contract> {
 		tags: [],
 		markers: [],
 		created_at: new Date().toISOString(),
+		updated_at: '',
 		active: true,
 		data: {
 			foo: 'bar',
@@ -56,11 +60,6 @@ async function generateCard(): Promise<Contract> {
 		requires: [{}],
 		capabilities: [{}],
 	};
-}
-
-let testContext: any = {};
-beforeAll(async () => {
-	const beforeCard = await generateCard();
 	const afterCard = clone(beforeCard);
 	afterCard.updated_at = new Date().toISOString();
 	afterCard.data.foo = 'buz';
@@ -70,7 +69,7 @@ beforeAll(async () => {
 		after: afterCard,
 	};
 
-	// Set up context
+	// Set up test context.
 	const context = {
 		id: `WORKER-1.0.0-${await random()}`,
 	};
@@ -128,10 +127,24 @@ beforeAll(async () => {
 	await measureCardPatch(testContext.cardPatchFunc);
 });
 
+/**
+ * Clean up post test run, close metrics http server
+ */
 afterAll(() => {
 	testContext.server.close();
 });
 
+/**
+ * Get raw metrics data from local /metrics endpoint.
+ * This is the data that Prometheus gets during scraping.
+ *
+ * @returns HTTP response code and body
+ *
+ * @example
+ * ```typescript
+ * const metricsData = await getMetrics();
+ * ```
+ */
 async function getMetrics(): Promise<{
 	code: number | undefined;
 	body: string;
