@@ -9,7 +9,7 @@ import { getLogger } from '@balena/jellyfish-logger';
 import { Contract } from '@balena/jellyfish-types/build/core';
 import { metrics } from '@balena/node-metrics-gatherer';
 import { LabelSet } from '@balena/node-metrics-gatherer/out/types';
-import * as express from 'express';
+import express from 'express';
 import { createServer, Server } from 'http';
 import { dropRight, has, isFunction, isString } from 'lodash';
 import { describe, Names } from './descriptions';
