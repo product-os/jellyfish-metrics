@@ -57,6 +57,9 @@ jspm_packages/
 # Yarn Integrity file
 .yarn-integrity
 
+# dotenv environment variables file
+.env
+
 # End of https://www.gitignore.io/api/node
 
 dump.rdb
@@ -64,7 +67,7 @@ dump.rdb
 *.lock
 
 # Built files
-dist/
+build/
 .cache-loader/
 *.0x
 
