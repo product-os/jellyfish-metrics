@@ -1,4 +1,87 @@
 - commits:
+    - subject: Remove husky directory
+      hash: beb3d10f23a1e8a92c49981a96080b002adf5505
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: Apply review suggestions
+      hash: ab7a1c566185eb92ad51f4f72a9f38f3d090cc16
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: Update lodash imports
+      hash: 161c694be90db14a18441a014cb080aa4892101d
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: Bring back esModuleInterop true
+      hash: 3478c8bd491db1055aece936b9ef529a8d5af2ad
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: Fix lint errors
+      hash: c0f64dab781a9c449e4ea61c933e1b12f882621a
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: Add jsdoc to tests
+      hash: 12fd305cac38611260db9bf4d6dc87f289bfdc8b
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: Get tests passing
+      hash: a7281c5e7a18d8ed13b7f47c876bd9a5a28618b2
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: Convert to TypeScript
+      hash: 4cdd902f58952b17f04437282fdb8fa8158ed84e
+      body: ''
+      footer:
+        Change-type: major
+        change-type: major
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.0.0
+  date: 2021-03-24T04:46:20.869Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-logger to ^1.0.57'
       hash: 056be838b3086fc23e25edb9e1cd38797bd2aa2d
       body: ''
