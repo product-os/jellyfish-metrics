@@ -105,7 +105,8 @@ export interface StreamChange {
 	after: Contract;
 }
 
-// TODO: Replace with proper Context type
+// TS-TODO: Replace with proper Context type
 export interface Context {
 	id: string;
+	[key: string]: any;
 }

@@ -6,10 +6,9 @@
 
 import { defaultEnvironment } from '@balena/jellyfish-environment';
 import { Contract } from '@balena/jellyfish-types/build/core';
-import { random } from '@balena/jellyfish-uuid';
-import { get, IncomingMessage } from 'http';
+import { get, IncomingMessage, Server } from 'http';
 import clone from 'lodash/clone';
-import noop from 'lodash/noop';
+import { v4 as uuidv4 } from 'uuid';
 import {
 	actorFromContext,
 	initExpress,
@@ -39,61 +38,83 @@ import {
 	measureTranslate,
 	startServer,
 } from './index';
-import { StreamChange } from './types';
+import { Context, StreamChange } from './types';
 
-// TODO: Add jsdoc and define local type for testContext instead of "any".
-let testContext: any = {};
-beforeAll(async () => {
-	// Prepare fake cards/data for tests.
-	const beforeCard: Contract = {
-		id: await random(),
-		version: '1.0.0',
-		slug: `card-${await random()}`,
-		type: 'card@1.0.0',
-		tags: [],
-		markers: [],
-		created_at: new Date().toISOString(),
-		updated_at: '',
-		active: true,
-		data: {
-			foo: 'bar',
-		},
-		requires: [{}],
-		capabilities: [{}],
-	};
-	const afterCard = clone(beforeCard);
-	afterCard.updated_at = new Date().toISOString();
-	afterCard.data.foo = 'buz';
-	const change: StreamChange = {
+/**
+ * Context used throughout tests
+ */
+interface TestContext {
+	context: Context;
+	integration: string;
+	action: string;
+	table: string;
+	milliseconds: number;
+	card: Contract;
+	cardType: string;
+	change: StreamChange;
+	func: () => Promise<string>;
+	failFunc: () => Promise<unknown>;
+	actor: string;
+	cardPatchFunc: () => Promise<Contract>;
+	server: Server;
+}
+
+// Fake application context
+const context: Context = {
+	id: `WORKER-1.0.0-${uuidv4()}`,
+};
+
+// Fake card for tests
+const card: Contract = {
+	id: uuidv4(),
+	version: '1.0.0',
+	slug: `card-${uuidv4()}`,
+	type: 'card@1.0.0',
+	tags: [],
+	markers: [],
+	created_at: new Date().toISOString(),
+	updated_at: '',
+	active: true,
+	data: {
+		foo: 'bar',
+	},
+	requires: [{}],
+	capabilities: [{}],
+};
+
+// Updated card after stream update change
+const afterCard = clone(card);
+afterCard.updated_at = new Date().toISOString();
+afterCard.data.foo = 'buz';
+
+// Test context used throughout all tests
+const testContext: TestContext = {
+	context,
+	integration: 'front',
+	action: 'action-create-card',
+	table: 'cards',
+	milliseconds: 1000,
+	card,
+	cardType: card.type.split('@')[0],
+	change: {
 		type: 'update',
-		before: beforeCard,
+		before: card,
 		after: afterCard,
-	};
+	},
+	func: async (): Promise<string> => {
+		return Promise.resolve('test');
+	},
+	failFunc: (): Promise<unknown> => {
+		throw new Error('test');
+	},
+	actor: actorFromContext(context),
+	cardPatchFunc: async (): Promise<Contract> => {
+		return Promise.resolve(card);
+	},
+	server: startServer(context, defaultEnvironment.metrics.ports.app),
+};
 
-	// Set up test context.
-	const context = {
-		id: `WORKER-1.0.0-${await random()}`,
-	};
-	testContext = {
-		context,
-		integration: 'front',
-		action: 'action-create-card',
-		table: 'cards',
-		milliseconds: 1000,
-		card: beforeCard,
-		cardType: 'card',
-		change,
-		func: noop,
-		failFunc: () => {
-			throw new Error('test');
-		},
-		actor: actorFromContext(context),
-		cardPatchFunc: async () => {
-			return beforeCard;
-		},
-		server: startServer(context, defaultEnvironment.metrics.ports.app),
-	};
-
+beforeAll(async () => {
 	// Trigger initial metrics data
 	markCardInsert(testContext.card);
 	markCardUpsert(testContext.card);

@@ -22,6 +22,7 @@ import * as utils from './utils';
 export {
 	Metric,
 	Histogram,
+	MeasureMetricNames,
 	MetricName,
 	CardMetricNames,
 	WorkerMetricNames,
@@ -53,11 +54,11 @@ const logger = getLogger(__filename);
  * const result = await measureAsync('my_metric', { ... }, myFunction, ...params)
  * ```
  */
-async function measureAsync(
+async function measureAsync<TResult>(
 	name: string,
-	labels: LabelSet | ((result: any) => LabelSet),
-	fn: () => Promise<any>,
-): Promise<any> {
+	labels: LabelSet | ((result: TResult) => LabelSet),
+	fn: () => Promise<TResult>,
+): Promise<TResult> {
 	const start = new Date();
 	const result = await fn();
 	const end = new Date();
@@ -116,7 +117,7 @@ export function initExpress(): express.Application {
  * const server = startServer(context, 9000);
  * ```
  */
-export function startServer(context: object, port: number): Server {
+export function startServer(context: Context, port: number): Server {
 	describe();
 	const b64enc = Buffer.from(
 		`monitor:${defaultEnvironment.metrics.token}`,
@@ -327,10 +328,10 @@ export function markJobDone(
  * const result = await metrics.measureMirror('github', mirror());
  * ```
  */
-export async function measureMirror(
+export async function measureMirror<TResult>(
 	integration: string,
-	fn: () => Promise<any>,
-): Promise<any> {
+	fn: () => Promise<TResult>,
+): Promise<TResult> {
 	const labels: LabelSet = {
 		type: integration,
 	};
@@ -357,10 +358,10 @@ export async function measureMirror(
  * @example
  * const result = await metrics.measureTranslate('github', translate())
  */
-export async function measureTranslate(
+export async function measureTranslate<TResult>(
 	integration: string,
-	fn: () => Promise<any>,
-): Promise<any> {
+	fn: () => Promise<TResult>,
+): Promise<TResult> {
 	const labels: LabelSet = {
 		type: integration,
 	};
@@ -385,12 +386,12 @@ export async function measureTranslate(
  * @param labels - metric labels object or callback that returns labels object
  * @returns {Any} api result
  */
-function getAsyncMeasureFn(
+function getAsyncMeasureFn<TResult>(
 	metric: MeasureMetricNames,
 	labels?: LabelSet | ((result: any) => LabelSet),
-): (fn: () => Promise<any>) => Promise<any> {
+): (fn: () => Promise<TResult>) => Promise<TResult> {
 	const metricLabels = labels === undefined ? {} : labels;
-	return async (fn: () => Promise<any>): Promise<any> => {
+	return async (fn: () => Promise<TResult>): Promise<TResult> => {
 		metrics.inc(metric.total, 1);
 		const result = await measureAsync(
 			metric.durationSeconds,
@@ -490,7 +491,7 @@ export function markQueryTime(ms: number): void {
  * markStreamOpened(context, 'cards');
  * ```
  */
-export function markStreamOpened(context: object, table: string): void {
+export function markStreamOpened(context: Context, table: string): void {
 	metrics.inc(Names.streams.saturation, 1, {
 		actor: exports.actorFromContext(context),
 		table,
@@ -509,7 +510,7 @@ export function markStreamOpened(context: object, table: string): void {
  * markStreamClosed(context, 'cards');
  * ```
  */
-export function markStreamClosed(context: object, table: string): void {
+export function markStreamClosed(context: Context, table: string): void {
 	metrics.dec(Names.streams.saturation, 1, {
 		actor: exports.actorFromContext(context),
 		table,
@@ -530,7 +531,7 @@ export function markStreamClosed(context: object, table: string): void {
  * ```
  */
 export function markStreamLinkQuery(
-	context: object,
+	context: Context,
 	table: string,
 	change: StreamChange,
 ): void {
@@ -587,5 +588,3 @@ export async function measureCardPatch(fn: () => Promise<any>): Promise<any> {
 	})(fn);
 	return result;
 }
-
-export { MeasureMetricNames };
