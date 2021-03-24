@@ -8,7 +8,8 @@ import { defaultEnvironment } from '@balena/jellyfish-environment';
 import { Contract } from '@balena/jellyfish-types/build/core';
 import { random } from '@balena/jellyfish-uuid';
 import { get, IncomingMessage } from 'http';
-import { clone, noop } from 'lodash';
+import clone from 'lodash/clone';
+import noop from 'lodash/noop';
 import {
 	actorFromContext,
 	initExpress,
