@@ -1,4 +1,17 @@
 - commits:
+    - subject: Publish docs with GitHub action
+      hash: f96925a05c32d0c0bea6f1dc4f3f77a11dd5f104
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.0.3
+  date: 2021-03-25T01:01:50.818Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-logger to ^2.1.6'
       hash: 8252db083eb241313ffb2d0fb6c95a8a782f462a
       body: ''
