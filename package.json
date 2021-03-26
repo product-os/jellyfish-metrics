@@ -27,7 +27,8 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "balena-lint --typescript --fix"
+      "npm run lint-fix",
+      "git add ."
     ]
   },
   "scripts": {
