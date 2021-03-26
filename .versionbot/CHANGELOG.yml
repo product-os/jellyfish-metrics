@@ -1,4 +1,25 @@
 - commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-types to ^0.2.0'
+      hash: 4d0b67534b51b18bbdd8685e430c8f134f165b53
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+    - subject: Update lint-staged config
+      hash: 299c9b50d04b272cf0b2cdd78e78da23373da219
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.0.10
+  date: 2021-03-26T03:20:31.304Z
+- commits:
     - subject: 'patch: Update non-major'
       hash: 466d83fa12475d2858fa940da4b7146ddd2ae148
       body: ''
