@@ -2,15 +2,16 @@
   "compilerOptions": {
     "module": "commonjs",
     "outDir": "build",
+    "esModuleInterop": true,
     "noUnusedParameters": true,
     "noUnusedLocals": true,
+    "resolveJsonModule": true,
     "removeComments": true,
     "sourceMap": true,
     "strict": true,
     "target": "es2015",
     "declaration": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true
+    "skipLibCheck": true
   },
   "typedocOptions": {
     "excludePrivate": true,
@@ -20,7 +21,6 @@
     "out": "docs"
   },
   "include": [
-    "lib/**/*.ts",
-    "@types/**/*.d.ts"
+    "lib/**/*.ts"
   ]
 }
