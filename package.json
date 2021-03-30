@@ -33,7 +33,7 @@
   },
   "scripts": {
     "clean": "rimraf build",
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && tsc -p tsconfig.build.json",
     "lint": "balena-lint --typescript lib && npm run check && deplint && depcheck --ignore-bin-package --ignores=@types/jest",
     "lint-fix": "balena-lint --typescript --fix lib",
     "unit": "jest",
