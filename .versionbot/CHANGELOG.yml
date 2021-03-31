@@ -1,4 +1,17 @@
 - commits:
+    - subject: Handle missing type field on card partials
+      hash: 99d5f5812483831888905c20176940f85233ad11
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.0.21
+  date: 2021-03-31T07:51:29.522Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-logger to ^2.1.15'
       hash: e36e0f08b3e90ce3cf1b0ccb38e1036531f53afb
       body: ''
