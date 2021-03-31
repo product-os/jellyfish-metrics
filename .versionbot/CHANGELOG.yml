@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-logger to ^2.1.16'
+      hash: 6cc22d169097b45ca8a104f787fdb9f30dbeb293
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.22
+  date: 2021-03-31T09:25:30.981Z
+- commits:
     - subject: Handle missing type field on card partials
       hash: 99d5f5812483831888905c20176940f85233ad11
       body: ''
