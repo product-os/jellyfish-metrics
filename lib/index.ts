@@ -161,7 +161,7 @@ export function startServer(context: Context, port: number): Server {
  */
 export function markCardInsert(card: Contract): void {
 	metrics.inc(Names.card.insert.total, 1, {
-		type: card.type.split('@')[0],
+		type: utils.parseType(card),
 	});
 }
 
@@ -178,7 +178,7 @@ export function markCardInsert(card: Contract): void {
  */
 export function markCardUpsert(card: Contract): void {
 	metrics.inc(Names.card.upsert.total, 1, {
-		type: card.type.split('@')[0],
+		type: utils.parseType(card),
 	});
 }
 
@@ -193,9 +193,9 @@ export function markCardUpsert(card: Contract): void {
  * markCardReadFromDatabase(card);
  * ```
  */
-export function markCardReadFromDatabase(card: Contract): void {
+export function markCardReadFromDatabase(card: any): void {
 	metrics.inc(Names.card.read.total, 1, {
-		type: card.type.split('@')[0],
+		type: utils.parseType(card),
 		source: 'database',
 	});
 }
@@ -211,9 +211,9 @@ export function markCardReadFromDatabase(card: Contract): void {
  * markCardReadFromCache(card);
  * ```
  */
-export function markCardReadFromCache(card: Contract): void {
+export function markCardReadFromCache(card: any): void {
 	metrics.inc(Names.card.read.total, 1, {
-		type: card.type.split('@')[0],
+		type: utils.parseType(card),
 		source: 'cache',
 	});
 }
@@ -542,10 +542,7 @@ export function markStreamLinkQuery(
 			has(change, ['type']) && isString(change.type)
 				? change.type.toLowerCase()
 				: 'unknown',
-		card:
-			has(change, ['after', 'type']) && isString(change.after.type)
-				? change.after.type.split('@')[0]
-				: 'unknown',
+		card: has(change, ['after']) ? utils.parseType(change.after) : 'unknown',
 	});
 }
 
@@ -583,7 +580,7 @@ export function markStreamError(context: object, table: string): void {
 export async function measureCardPatch(fn: () => Promise<any>): Promise<any> {
 	const result = await getAsyncMeasureFn(Names.card.patch, (card: Contract) => {
 		return {
-			type: card.type.split('@')[0],
+			type: utils.parseType(card),
 		};
 	})(fn);
 	return result;
