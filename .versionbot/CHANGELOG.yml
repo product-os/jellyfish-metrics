@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update dependency @types/node to ^14.14.41'
+      hash: 1d3bbb69a93ab0164bb7da03c2945430b18c7f12
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.93
+  date: 2021-04-15T17:37:30.255Z
+- commits:
     - subject: 'patch: Update non-major'
       hash: 4116298e483f40e10d79999f795eff4d87bed5fd
       body: ''
