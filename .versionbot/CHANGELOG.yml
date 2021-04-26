@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update non-major'
+      hash: b57c58fa3bc141feccf0ed6e0526f8bb8bd9fa22
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.145
+  date: 2021-04-26T18:08:57.543Z
+- commits:
     - subject: 'patch: Update dependency @types/jest to ^26.0.23'
       hash: 473bae62e1579a476b8b06d7107cf367ddbe4750
       body: ''
