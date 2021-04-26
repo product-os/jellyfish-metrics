@@ -47,7 +47,7 @@
   "dependencies": {
     "@balena/jellyfish-environment": "^4.1.7",
     "@balena/jellyfish-logger": "^2.1.35",
-    "@balena/jellyfish-types": "^0.5.56",
+    "@balena/jellyfish-types": "^0.5.58",
     "@balena/node-metrics-gatherer": "^5.7.3",
     "express": "^4.17.1",
     "lodash": "^4.17.21"
@@ -57,7 +57,7 @@
     "@balena/lint": "^5.4.1",
     "@types/express": "^4.17.11",
     "@types/jest": "^26.0.23",
-    "@types/node": "^14.14.41",
+    "@types/node": "^14.14.42",
     "@types/uuid": "^8.3.0",
     "catch-uncommitted": "^1.6.2",
     "depcheck": "^1.4.0",
