@@ -46,7 +46,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@balena/jellyfish-environment": "^4.1.9",
-    "@balena/jellyfish-logger": "^2.1.42",
+    "@balena/jellyfish-logger": "^2.1.43",
     "@balena/jellyfish-types": "^0.5.111",
     "@balena/node-metrics-gatherer": "^5.7.3",
     "express": "^4.17.1",
