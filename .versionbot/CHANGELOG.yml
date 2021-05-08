@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update non-major'
+      hash: 062f89f63e0f1bcca763a96582898d15181d3b57
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.202
+  date: 2021-05-08T08:26:50.929Z
+- commits:
     - subject: 'build(deps): bump hosted-git-info from 2.8.8 to 2.8.9'
       hash: 9b77c46e112996f1250f5f3d185de3f954f18ae7
       body: >
