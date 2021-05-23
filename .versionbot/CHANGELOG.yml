@@ -1,4 +1,17 @@
 - commits:
+    - subject: Use jellyfish-config
+      hash: b68cb01976066bd7dc8568418fc97976fd58811b
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.0.216
+  date: 2021-05-23T01:49:11.399Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-logger to ^2.1.66'
       hash: ede22ddb980cb46b7d1bdbd7bd377c198fcd4ef1
       body: ''
