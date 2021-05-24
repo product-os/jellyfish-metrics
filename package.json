@@ -34,8 +34,8 @@
   "scripts": {
     "clean": "rimraf build",
     "build": "npm run clean && tsc -p tsconfig.build.json",
-    "lint": "balena-lint --typescript lib && npm run check && deplint && depcheck --ignore-bin-package --ignores=@types/jest",
-    "lint-fix": "balena-lint --typescript --fix lib",
+    "lint": "balena-lint lib && npm run check && deplint && depcheck --ignore-bin-package --ignores=@types/jest",
+    "lint-fix": "balena-lint --fix lib",
     "unit": "jest",
     "test": "catch-uncommitted --skip-node-versionbot-changes && npm run lint && npm run unit",
     "doc": "typedoc lib/ && touch docs/.nojekyll",
@@ -55,7 +55,7 @@
   "devDependencies": {
     "@balena/jellycheck": "^0.1.1",
     "@balena/jellyfish-config": "^1.0.6",
-    "@balena/lint": "^5.4.2",
+    "@balena/lint": "^6.0.0",
     "@types/express": "^4.17.11",
     "@types/jest": "^26.0.23",
     "@types/node": "^14.17.0",
