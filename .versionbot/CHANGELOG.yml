@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update internal-patch'
+      hash: 10bb4840929fe503e4574e2a5c5647cbb67b79e1
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.223
+  date: 2021-05-24T06:43:42.260Z
+- commits:
     - subject: Update lint command
       hash: 46f73d2091c97704b88362f0e71f0bd852d11a98
       body: ''
