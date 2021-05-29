@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update external-major to v27'
+      hash: 1ece4fa4f40627d71a27a80ce8bae951503a0340
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.240
+  date: 2021-05-29T07:54:13.796Z
+- commits:
     - subject: 'patch: Update internal-patch'
       hash: 36f213015e06911ce57b05802423f3643639c1ec
       body: ''
