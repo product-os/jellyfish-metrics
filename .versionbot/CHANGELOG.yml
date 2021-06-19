@@ -1,4 +1,17 @@
 - commits:
+    - subject: Bump typescript to v4.3.4
+      hash: 8b5523923eba1e3a639f333110be6f6b2d1293ec
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.0.278
+  date: 2021-06-19T13:05:42.533Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-logger to ^3.0.19'
       hash: 5db901e82bb122a064c8aa44d58173e2a01cbb38
       body: ''
