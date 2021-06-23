@@ -1,4 +1,17 @@
 - commits:
+    - subject: Bump external dependencies
+      hash: ccde5fe9060f5091c33d3508197afa0fa6e640dc
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.0.285
+  date: 2021-06-23T23:27:28.665Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-logger to ^3.0.23'
       hash: e688c02664868fa6931c09c8b2518529ca3ff69c
       body: ''
