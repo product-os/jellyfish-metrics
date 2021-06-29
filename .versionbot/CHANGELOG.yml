@@ -1,4 +1,15 @@
 - commits:
+    - subject: "\U0001F504 Synced file(s) with product-os/jellyfish-config"
+      hash: 86300207b2f9aad6733f860644792767ec1e84e3
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: jellyfish-bot
+      nested: []
+  version: 1.0.290
+  date: 2021-06-29T09:59:41.774Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-environment to ^4.3.2'
       hash: 5d7ff71bb7de6adfb942f63edbd1cb6cefda97a2
       body: |
