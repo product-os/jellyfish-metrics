@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update dependency @balena/node-metrics-gatherer to ^5.7.5'
+      hash: 28f74c5f05f1b62590c559610f7163895085a459
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.308
+  date: 2021-07-05T16:52:42.091Z
+- commits:
     - subject: 'patch: Update dependency @balena/node-metrics-gatherer to ^5.7.4'
       hash: 67daf08414c1fa796f2bbb10f60a7a105f25c564
       body: ''
