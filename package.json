@@ -47,7 +47,7 @@
     "@balena/jellyfish-environment": "^4.3.10",
     "@balena/jellyfish-logger": "^3.0.42",
     "@balena/jellyfish-types": "^0.8.5",
-    "@balena/node-metrics-gatherer": "^5.7.4",
+    "@balena/node-metrics-gatherer": "^5.7.5",
     "express": "^4.17.1",
     "lodash": "^4.17.21"
   },
