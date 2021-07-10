@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Histogram | @balena/jellyfish-metrics</title>
+	<title>MeasureMetricNames | @balena/jellyfish-metrics</title>
 	<meta name="description" content="Documentation for @balena/jellyfish-metrics">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -58,10 +58,10 @@
 					<a href="../modules/types.html">types</a>
 				</li>
 				<li>
-					<a href="types.histogram.html">Histogram</a>
+					<a href="types.MeasureMetricNames.html">MeasureMetricNames</a>
 				</li>
 			</ul>
-			<h1>Interface Histogram</h1>
+			<h1>Interface MeasureMetricNames</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Histogram metric definition</p>
+						<p>Common async measure metric names</p>
 					</div>
 				</div>
 			</section>
@@ -79,10 +79,10 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="types.metric.html" class="tsd-signature-type" data-tsd-kind="Interface">Metric</a>
+						<span class="tsd-signature-type">Pick</span><span class="tsd-signature-symbol">&lt;</span><a href="types.MetricName.html" class="tsd-signature-type" data-tsd-kind="Interface">MetricName</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;total&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;durationSeconds&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;failureTotal&quot;</span><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">Histogram</span>
+								<span class="target">MeasureMetricNames</span>
 							</li>
 						</ul>
 					</li>
@@ -92,48 +92,49 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="types.histogram.html#buckets" class="tsd-kind-icon">buckets</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="types.histogram.html#description" class="tsd-kind-icon">description</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="types.histogram.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="types.MeasureMetricNames.html#durationSeconds" class="tsd-kind-icon">duration<wbr>Seconds</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="types.MeasureMetricNames.html#failureTotal" class="tsd-kind-icon">failure<wbr>Total</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="types.MeasureMetricNames.html#total" class="tsd-kind-icon">total</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="buckets" class="tsd-anchor"></a>
-					<h3>buckets</h3>
-					<div class="tsd-signature tsd-kind-icon">buckets<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="durationSeconds" class="tsd-anchor"></a>
+					<h3>duration<wbr>Seconds</h3>
+					<div class="tsd-signature tsd-kind-icon">duration<wbr>Seconds<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from Pick.durationSeconds</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/product-os/jellyfish-metrics/blob/3282701/lib/types.ts#L21">lib/types.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/product-os/jellyfish-metrics/blob/6a7f73c/lib/types.ts#L32">lib/types.ts:32</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="description" class="tsd-anchor"></a>
-					<h3>description</h3>
-					<div class="tsd-signature tsd-kind-icon">description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="failureTotal" class="tsd-anchor"></a>
+					<h3>failure<wbr>Total</h3>
+					<div class="tsd-signature tsd-kind-icon">failure<wbr>Total<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="types.metric.html">Metric</a>.<a href="types.metric.html#description">description</a></p>
+						<p>Inherited from Pick.failureTotal</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/product-os/jellyfish-metrics/blob/3282701/lib/types.ts#L14">lib/types.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/product-os/jellyfish-metrics/blob/6a7f73c/lib/types.ts#L33">lib/types.ts:33</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="name" class="tsd-anchor"></a>
-					<h3>name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="total" class="tsd-anchor"></a>
+					<h3>total</h3>
+					<div class="tsd-signature tsd-kind-icon">total<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="types.metric.html">Metric</a>.<a href="types.metric.html#name">name</a></p>
+						<p>Inherited from Pick.total</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/product-os/jellyfish-metrics/blob/3282701/lib/types.ts#L13">lib/types.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/product-os/jellyfish-metrics/blob/6a7f73c/lib/types.ts#L28">lib/types.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -162,55 +163,55 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="types.backsyncmetricnames.html" class="tsd-kind-icon">Back<wbr>Sync<wbr>Metric<wbr>Names</a>
+						<a href="types.BackSyncMetricNames.html" class="tsd-kind-icon">Back<wbr>Sync<wbr>Metric<wbr>Names</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="types.cardmetricnames.html" class="tsd-kind-icon">Card<wbr>Metric<wbr>Names</a>
+						<a href="types.CardMetricNames.html" class="tsd-kind-icon">Card<wbr>Metric<wbr>Names</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="types.context.html" class="tsd-kind-icon">Context</a>
+						<a href="types.Context.html" class="tsd-kind-icon">Context</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="types.Histogram.html" class="tsd-kind-icon">Histogram</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="types.histogram.html" class="tsd-kind-icon">Histogram</a>
+						<a href="types.MeasureMetricNames.html" class="tsd-kind-icon">Measure<wbr>Metric<wbr>Names</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="types.histogram.html#buckets" class="tsd-kind-icon">buckets</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="types.MeasureMetricNames.html#durationSeconds" class="tsd-kind-icon">duration<wbr>Seconds</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="types.histogram.html#description" class="tsd-kind-icon">description</a>
+								<a href="types.MeasureMetricNames.html#failureTotal" class="tsd-kind-icon">failure<wbr>Total</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="types.histogram.html#name" class="tsd-kind-icon">name</a>
+								<a href="types.MeasureMetricNames.html#total" class="tsd-kind-icon">total</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="types.measuremetricnames.html" class="tsd-kind-icon">Measure<wbr>Metric<wbr>Names</a>
+						<a href="types.Metric.html" class="tsd-kind-icon">Metric</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="types.metric.html" class="tsd-kind-icon">Metric</a>
+						<a href="types.MetricName.html" class="tsd-kind-icon">Metric<wbr>Name</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="types.metricname.html" class="tsd-kind-icon">Metric<wbr>Name</a>
+						<a href="types.MetricNames.html" class="tsd-kind-icon">Metric<wbr>Names</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="types.metricnames.html" class="tsd-kind-icon">Metric<wbr>Names</a>
+						<a href="types.SQLMetricNames.html" class="tsd-kind-icon">SQLMetric<wbr>Names</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="types.sqlmetricnames.html" class="tsd-kind-icon">SQLMetric<wbr>Names</a>
+						<a href="types.StreamChange.html" class="tsd-kind-icon">Stream<wbr>Change</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="types.streamchange.html" class="tsd-kind-icon">Stream<wbr>Change</a>
+						<a href="types.StreamMetricNames.html" class="tsd-kind-icon">Stream<wbr>Metric<wbr>Names</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="types.streammetricnames.html" class="tsd-kind-icon">Stream<wbr>Metric<wbr>Names</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="types.workermetricnames.html" class="tsd-kind-icon">Worker<wbr>Metric<wbr>Names</a>
+						<a href="types.WorkerMetricNames.html" class="tsd-kind-icon">Worker<wbr>Metric<wbr>Names</a>
 					</li>
 				</ul>
 			</nav>
@@ -228,7 +229,6 @@
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 		</div>
 	</div>
