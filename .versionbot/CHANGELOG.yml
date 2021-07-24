@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update dependency @types/node to ^14.17.6'
+      hash: 80516dec99ca5f22a6938d01386fa94f82e06507
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.331
+  date: 2021-07-24T19:40:06.701Z
+- commits:
     - subject: 'patch: Update dependency lint-staged to ^11.1.1'
       hash: c60fbae40e926084d713adfb9940c4a79710be9e
       body: ''
