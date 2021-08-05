@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update internal-patch'
+      hash: 17e327d65d360bb8133b8167d87dfe6ba76fb2da
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.333
+  date: 2021-08-04T23:53:32.818Z
+- commits:
     - subject: use balena convention for npm script names
       hash: eb1cad74237f06791080f5d4f4139f4bd1e9b975
       body: |
