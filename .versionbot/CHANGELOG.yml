@@ -1,4 +1,17 @@
 - commits:
+    - subject: 'Update Renovate config, bump jellyfish-types'
+      hash: 943a55802fd966d49317b5d10fd622ce5a363ba6
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.0.335
+  date: 2021-08-25T11:43:51.398Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-logger to ^3.0.64'
       hash: f6b3a81266e31b7c3070bcc719da00a97afed506
       body: ''
