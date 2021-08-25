@@ -46,7 +46,7 @@
   "dependencies": {
     "@balena/jellyfish-environment": "^4.3.19",
     "@balena/jellyfish-logger": "^3.0.54",
-    "@balena/jellyfish-types": "^0.8.13",
+    "@balena/jellyfish-types": "^0.9.9",
     "@balena/node-metrics-gatherer": "^5.7.5",
     "express": "^4.17.1",
     "lodash": "^4.17.21"
