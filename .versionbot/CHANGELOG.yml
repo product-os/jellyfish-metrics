@@ -1,4 +1,15 @@
 - commits:
+    - subject: "\U0001F504 Synced file(s) with product-os/jellyfish-config"
+      hash: f8cf1b9c3830bf496929111c90da32ebf4e7abc2
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: joshbwlng
+      nested: []
+  version: 1.0.342
+  date: 2021-10-04T05:08:41.927Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-logger to ^3.0.66'
       hash: cd720f8a321f3155a21b574f67a467d0c6fb9c6f
       body: ''
