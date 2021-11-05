@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update internal-patch'
+      hash: 13d2e7a2dbac663ade62ffb4e77dfe26399e8b3a
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.364
+  date: 2021-11-05T23:09:28.443Z
+- commits:
     - subject: 'patch: Update dependency @types/node to v16'
       hash: c532daacd23f01375d342e864b1ada9f14cbe619
       body: ''
