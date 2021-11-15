@@ -44,14 +44,14 @@
   "author": "Balena.io. <hello@balena.io>",
   "license": "Apache-2.0",
   "dependencies": {
-    "@balena/jellyfish-environment": "^5.1.5",
-    "@balena/jellyfish-logger": "^3.0.117",
+    "@balena/jellyfish-environment": "^5.1.6",
+    "@balena/jellyfish-logger": "^3.0.118",
     "@balena/node-metrics-gatherer": "^5.7.5",
     "express": "^4.17.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@balena/jellycheck": "^0.1.5",
+    "@balena/jellycheck": "^0.1.7",
     "@balena/jellyfish-config": "^1.5.4",
     "@balena/jellyfish-types": "^1.2.3",
     "@balena/lint": "^6.1.1",
