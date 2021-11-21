@@ -1,9 +1,3 @@
-/*
- * Copyright (C) Balena.io - All Rights Reserved
- * Unauthorized copying of this file, via any medium is strictly prohibited.
- * Proprietary and confidential.
- */
-
 import { metrics } from '@balena/node-metrics-gatherer';
 import { Histogram, MeasureMetricNames, Metric, MetricNames } from './types';
 import * as utils from './utils';
