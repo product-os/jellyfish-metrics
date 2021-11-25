@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update internal-patch'
+      hash: 7a4e5a59dee8a8c4c3a937cd31943864a877e34d
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.411
+  date: 2021-11-25T06:52:46.319Z
+- commits:
     - subject: Remove outdated upstreams from repo.yml
       hash: 7ba65193c194c87365256264ebbb98bdfd9b5d7e
       body: ''
