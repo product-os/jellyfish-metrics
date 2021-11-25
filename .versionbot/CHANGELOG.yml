@@ -1,4 +1,26 @@
 - commits:
+    - subject: Bump typedoc to v0.22.10
+      hash: 21cfeab8d59dc0763f079e0da7f753ddcacbd981
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: 'patch: Update dependency typescript to ^4.5.2'
+      hash: b03436a6dbcb48a618377d6222c6b52260f535e4
+      body: |
+        Update typescript from 4.4.4 to 4.5.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.413
+  date: 2021-11-25T07:26:56.820Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-logger to ^3.0.147'
       hash: 2941c49c1e13b38039b83ede3d897421fbec8e22
       body: ''
