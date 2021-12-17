@@ -1,4 +1,16 @@
 - commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-logger to v4'
+      hash: 7ae85de1baefad63daed6c9a71730ab437612ed8
+      body: |
+        Update @balena/jellyfish-logger from 3.1.0 to 4.0.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.440
+  date: 2021-12-17T16:57:23.478Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-logger to ^3.1.0'
       hash: 88f2fa82525f148ded63b8ac0c95561b20d10fcc
       body: |
