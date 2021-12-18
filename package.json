@@ -1,6 +1,6 @@
 {
   "name": "@balena/jellyfish-metrics",
-  "version": "1.0.442",
+  "version": "1.0.443",
   "repository": {
     "type": "git",
     "url": "https://github.com/product-os/jellyfish-metrics.git"
@@ -71,6 +71,6 @@
     "pre-commit": "npx lint-staged"
   },
   "versionist": {
-    "publishedAt": "2021-12-18T07:38:55.979Z"
+    "publishedAt": "2021-12-18T08:42:40.095Z"
   }
 }
