@@ -44,7 +44,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@balena/jellyfish-environment": "^6.0.4",
-    "@balena/jellyfish-logger": "^4.0.4",
+    "@balena/jellyfish-logger": "^4.0.5",
     "@balena/node-metrics-gatherer": "^5.7.5",
     "express": "^4.17.2",
     "lodash": "^4.17.21"
