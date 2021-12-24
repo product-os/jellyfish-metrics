@@ -1,17 +1,17 @@
 import { defaultEnvironment } from '@balena/jellyfish-environment';
-import { Contract } from '@balena/jellyfish-types/build/core';
+import type { Contract } from '@balena/jellyfish-types/build/core';
 import { get, IncomingMessage, Server } from 'http';
-import clone from 'lodash/clone';
+import _ from 'lodash';
 import { v4 as uuidv4 } from 'uuid';
 import {
 	actorFromContext,
 	initExpress,
 	markActionRequest,
 	markBackSync,
-	markCardInsert,
-	markCardReadFromCache,
-	markCardReadFromDatabase,
-	markCardUpsert,
+	markContractInsert,
+	markContractReadFromCache,
+	markContractReadFromDatabase,
+	markContractUpsert,
 	markJobAdd,
 	markJobDone,
 	markQueryTime,
@@ -21,7 +21,7 @@ import {
 	markStreamError,
 	markStreamLinkQuery,
 	markStreamOpened,
-	measureCardPatch,
+	measureContractPatch,
 	measureHttpAction,
 	measureHttpId,
 	measureHttpQuery,
@@ -32,38 +32,39 @@ import {
 	measureTranslate,
 	startServer,
 } from './index';
-import { Context, StreamChange } from './types';
+import type { StreamChange } from './types';
+import type { LogContext } from '@balena/jellyfish-logger';
 
 /**
  * Context used throughout tests
  */
 interface TestContext {
-	context: Context;
+	logContext: LogContext;
 	integration: string;
 	action: string;
 	table: string;
 	milliseconds: number;
-	card: Contract;
-	cardType: string;
+	contract: Contract;
+	contractType: string;
 	change: StreamChange;
 	func: () => Promise<string>;
 	failFunc: () => Promise<unknown>;
 	actor: string;
-	cardPatchFunc: () => Promise<Contract>;
+	contractPatchFunc: () => Promise<Contract>;
 	server: Server;
 }
 
 // Fake application context
-const context: Context = {
-	id: `WORKER-1.0.0-${uuidv4()}`,
+const logContext: LogContext = {
+	id: `metrics-${uuidv4()}`,
 };
 
-// Fake card for tests
-const card: Contract = {
+// Fake contract for tests
+const contract: Contract = {
 	id: uuidv4(),
 	version: '1.0.0',
-	slug: `card-${uuidv4()}`,
-	type: 'card@1.0.0',
+	slug: `contract-${uuidv4()}`,
+	type: 'contract@1.0.0',
 	tags: [],
 	markers: [],
 	created_at: new Date().toISOString(),
@@ -76,24 +77,24 @@ const card: Contract = {
 	capabilities: [{}],
 };
 
-// Updated card after stream update change
-const afterCard = clone(card);
-afterCard.updated_at = new Date().toISOString();
-afterCard.data.foo = 'buz';
+// Updated contract after stream update change
+const afterContract = _.clone(contract);
+afterContract.updated_at = new Date().toISOString();
+afterContract.data.foo = 'buz';
 
 // Test context used throughout all tests
 const testContext: TestContext = {
-	context,
+	logContext,
 	integration: 'front',
-	action: 'action-create-card',
+	action: 'action-create-contract',
 	table: 'cards',
 	milliseconds: 1000,
-	card,
-	cardType: card.type.split('@')[0],
+	contract,
+	contractType: contract.type.split('@')[0],
 	change: {
 		type: 'update',
-		before: card,
-		after: afterCard,
+		before: contract,
+		after: afterContract,
 	},
 	func: async (): Promise<string> => {
 		return Promise.resolve('test');
@@ -101,36 +102,36 @@ const testContext: TestContext = {
 	failFunc: (): Promise<unknown> => {
 		throw new Error('test');
 	},
-	actor: actorFromContext(context),
-	cardPatchFunc: async (): Promise<Contract> => {
-		return Promise.resolve(card);
+	actor: actorFromContext(logContext),
+	contractPatchFunc: async (): Promise<Contract> => {
+		return Promise.resolve(contract);
 	},
-	server: startServer(context, defaultEnvironment.metrics.ports.app),
+	server: startServer(logContext, defaultEnvironment.metrics.ports.app),
 };
 
 beforeAll(async () => {
 	// Trigger initial metrics data
-	markCardInsert(testContext.card);
-	markCardUpsert(testContext.card);
-	markCardReadFromDatabase(testContext.card);
-	markCardReadFromCache(testContext.card);
+	markContractInsert(testContext.contract);
+	markContractUpsert(testContext.contract);
+	markContractReadFromDatabase(testContext.contract);
+	markContractReadFromCache(testContext.contract);
 	markBackSync(testContext.integration);
 	markActionRequest(testContext.action);
-	markJobAdd(testContext.action, testContext.context.id);
+	markJobAdd(testContext.action, testContext.logContext.id);
 	markJobDone(
 		testContext.action,
-		testContext.context.id,
+		testContext.logContext.id,
 		new Date().toISOString(),
 	);
 	markSqlGenTime(testContext.milliseconds);
 	markQueryTime(testContext.milliseconds);
-	markStreamOpened(testContext.context, testContext.table);
+	markStreamOpened(testContext.logContext, testContext.table);
 	markStreamLinkQuery(
-		testContext.context,
+		testContext.logContext,
 		testContext.table,
 		testContext.change,
 	);
-	markStreamError(testContext.context, testContext.table);
+	markStreamError(testContext.logContext, testContext.table);
 	markQueueConcurrency();
 	await measureMirror(testContext.integration, testContext.func);
 	await measureTranslate(testContext.integration, testContext.func);
@@ -140,7 +141,7 @@ beforeAll(async () => {
 	await measureHttpSlug(testContext.func);
 	await measureHttpAction(testContext.func);
 	await measureHttpWhoami(testContext.func);
-	await measureCardPatch(testContext.cardPatchFunc);
+	await measureContractPatch(testContext.contractPatchFunc);
 });
 
 /**
@@ -197,84 +198,86 @@ async function getMetrics(): Promise<{
 }
 
 test('actorFromContext() should return actor name', () => {
-	const actor = actorFromContext(testContext.context);
-	expect(actor).toBe('worker');
+	const actor = actorFromContext(testContext.logContext);
+	expect(actor).toBe('metrics');
 });
 
-test('initExpress() should create an express app', () => {
-	const app = initExpress();
-	expect(app).toBeTruthy();
+describe('initExpress()', () => {
+	test('should create an express app', () => {
+		const app = initExpress();
+		expect(app).toBeTruthy();
+	});
+
+	test('should create an express app', () => {
+		const app = initExpress();
+		expect(app).toBeTruthy();
+	});
 });
 
-test('initExpress() should create an express app', () => {
-	const app = initExpress();
-	expect(app).toBeTruthy();
-});
-
-test('.markCardInsert() should increment the card insert counter', async () => {
+test('.markContractInsert() should increment the contract insert counter', async () => {
 	let result = await getMetrics();
 	expect(
 		result.body.includes(
-			`jf_card_insert_total{type="${testContext.cardType}"} 1`,
+			`jf_card_insert_total{type="${testContext.contractType}"} 1`,
 		),
 	).toBeTruthy();
 
-	markCardInsert(testContext.card);
+	markContractInsert(testContext.contract);
 	result = await getMetrics();
 	expect(
 		result.body.includes(
-			`jf_card_insert_total{type="${testContext.cardType}"} 2`,
+			`jf_card_insert_total{type="${testContext.contractType}"} 2`,
 		),
 	).toBeTruthy();
 });
 
-test('.markCardUpsert() should increment the card upsert counter', async () => {
+test('.markContractUpsert() should increment the contract upsert counter', async () => {
 	let result = await getMetrics();
 	expect(
 		result.body.includes(
-			`jf_card_upsert_total{type="${testContext.cardType}"} 1`,
+			`jf_card_upsert_total{type="${testContext.contractType}"} 1`,
 		),
 	).toBeTruthy();
 
-	markCardUpsert(testContext.card);
+	markContractUpsert(testContext.contract);
 	result = await getMetrics();
 	expect(
 		result.body.includes(
-			`jf_card_upsert_total{type="${testContext.cardType}"} 2`,
+			`jf_card_upsert_total{type="${testContext.contractType}"} 2`,
 		),
 	).toBeTruthy();
 });
 
-test('.markCardReadFromDatabase() should increment the card read from database counter', async () => {
+test('.markContractReadFromDatabase() should increment the contract read from database counter', async () => {
 	let result = await getMetrics();
 	expect(
 		result.body.includes(
-			`jf_card_read_total{type="${testContext.cardType}",source="database"} 1`,
+			`jf_card_read_total{type="${testContext.contractType}",source="database"} 1`,
 		),
 	).toBeTruthy();
 
-	markCardReadFromDatabase(testContext.card);
+	markContractReadFromDatabase(testContext.contract);
 	result = await getMetrics();
 	expect(
 		result.body.includes(
-			`jf_card_read_total{type="${testContext.cardType}",source="database"} 2`,
+			`jf_card_read_total{type="${testContext.contractType}",source="database"} 2`,
 		),
 	).toBeTruthy();
 });
 
-test('.markCardReadFromCache() should increment the card read from cache counter', async () => {
+test('.markContractReadFromCache() should increment the contract read from cache counter', async () => {
 	let result = await getMetrics();
 	expect(
 		result.body.includes(
-			`jf_card_read_total{type="${testContext.cardType}",source="cache"} 1`,
+			`jf_card_read_total{type="${testContext.contractType}",source="cache"} 1`,
 		),
 	).toBeTruthy();
 
-	markCardReadFromCache(testContext.card);
+	markContractReadFromCache(testContext.contract);
 	result = await getMetrics();
 	expect(
 		result.body.includes(
-			`jf_card_read_total{type="${testContext.cardType}",source="cache"} 2`,
+			`jf_card_read_total{type="${testContext.contractType}",source="cache"} 2`,
 		),
 	).toBeTruthy();
 });
@@ -314,23 +317,23 @@ test('.markActionRequest() should increment the action request counter', async (
 });
 
 test('.markJobAdd() and .markJobDone() should increment and decrement the worker saturation gauge', async () => {
-	markJobAdd(testContext.action, testContext.context.id);
+	markJobAdd(testContext.action, testContext.logContext.id);
 	let result = await getMetrics();
 	expect(
 		result.body.includes(
-			`jf_worker_saturation{type="${testContext.action}",worker="${testContext.context.id}"} 1`,
+			`jf_worker_saturation{type="${testContext.action}",worker="${testContext.logContext.id}"} 1`,
 		),
 	).toBeTruthy();
 
 	markJobDone(
 		testContext.action,
-		testContext.context.id,
+		testContext.logContext.id,
 		new Date().toISOString(),
 	);
 	result = await getMetrics();
 	expect(
 		result.body.includes(
-			`jf_worker_saturation{type="${testContext.action}",worker="${testContext.context.id}"} 0`,
+			`jf_worker_saturation{type="${testContext.action}",worker="${testContext.logContext.id}"} 0`,
 		),
 	).toBeTruthy();
 });
@@ -389,7 +392,7 @@ test('.markStreamOpened() and .markStreamClosed() should increment and decrement
 		),
 	).toBeTruthy();
 
-	markStreamClosed(testContext.context, testContext.table);
+	markStreamClosed(testContext.logContext, testContext.table);
 	result = await getMetrics();
 	expect(
 		result.body.includes(
@@ -403,12 +406,12 @@ test('.markStreamLinkQuery() should increment the stream link query counter', as
 	expect(
 		result.body.includes(
 			`jf_streams_link_query_total{table="${testContext.table}",actor="${testContext.actor}",` +
-				`type="${testContext.change.type}",card="${testContext.cardType}"} 1`,
+				`type="${testContext.change.type}",card="${testContext.contractType}"} 1`,
 		),
 	).toBeTruthy();
 
 	markStreamLinkQuery(
-		testContext.context,
+		testContext.logContext,
 		testContext.table,
 		testContext.change,
 	);
@@ -416,7 +419,7 @@ test('.markStreamLinkQuery() should increment the stream link query counter', as
 	expect(
 		result.body.includes(
 			`jf_streams_link_query_total{table="${testContext.table}",actor="${testContext.actor}",` +
-				`type="${testContext.change.type}",card="${testContext.cardType}"} 2`,
+				`type="${testContext.change.type}",card="${testContext.contractType}"} 2`,
 		),
 	).toBeTruthy();
 });
@@ -429,7 +432,7 @@ test('.markStreamError() should increment the stream error counter', async () =>
 		),
 	).toBeTruthy();
 
-	markStreamError(testContext.context, testContext.table);
+	markStreamError(testContext.logContext, testContext.table);
 	result = await getMetrics();
 	expect(
 		result.body.includes(
@@ -601,10 +604,10 @@ test('.measureHttpWhoami() should increment counters', async () => {
 	).toBeTruthy();
 });
 
-test('.measureCardPatch() should increment counters', async () => {
+test('.measureContractPatch() should increment counters', async () => {
 	expect.assertions(4);
 	try {
-		await measureCardPatch(testContext.failFunc);
+		await measureContractPatch(testContext.failFunc);
 	} catch (error) {
 		expect(error).toEqual(new Error('test'));
 	}
@@ -614,40 +617,40 @@ test('.measureCardPatch() should increment counters', async () => {
 	expect(result.body.includes('jf_card_patch_failure_total 1')).toBeTruthy();
 	expect(
 		result.body.includes(
-			`jf_card_patch_duration_seconds_count{type="${testContext.cardType}"} 1`,
+			`jf_card_patch_duration_seconds_count{type="${testContext.contractType}"} 1`,
 		),
 	).toBeTruthy();
 });
 
 test('jf_card_insert_total has a description', async () => {
 	const result = await getMetrics();
-	const desc = '# HELP jf_card_insert_total number of cards inserted';
+	const desc = '# HELP jf_card_insert_total number of contracts inserted';
 	expect(result.body.includes(desc)).toBeTruthy();
 });
 
 test('jf_card_upsert_total has a description', async () => {
 	const result = await getMetrics();
-	const desc = '# HELP jf_card_upsert_total number of cards upserted';
+	const desc = '# HELP jf_card_upsert_total number of contracts upserted';
 	expect(result.body.includes(desc)).toBeTruthy();
 });
 
 test('jf_card_patch_total has a description', async () => {
 	const result = await getMetrics();
-	const desc = '# HELP jf_card_patch_total number of card patch requests';
+	const desc = '# HELP jf_card_patch_total number of contract patch requests';
 	expect(result.body.includes(desc)).toBeTruthy();
 });
 
 test('jf_card_patch_failure_total has a description', async () => {
 	const result = await getMetrics();
 	const desc =
-		'# HELP jf_card_patch_failure_total number of card patch failures';
+		'# HELP jf_card_patch_failure_total number of contract patch failures';
 	expect(result.body.includes(desc)).toBeTruthy();
 });
 
 test('jf_card_read_total has a description', async () => {
 	const result = await getMetrics();
 	const desc =
-		'# HELP jf_card_read_total number of cards read from database/cache';
+		'# HELP jf_card_read_total number of contracts read from database/cache';
 	expect(result.body.includes(desc)).toBeTruthy();
 });
 
