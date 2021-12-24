@@ -1,4 +1,20 @@
 - commits:
+    - subject: 'Clean up types, rename card to contract'
+      hash: edc235c1e853562774dc150f6e5d80eb903c077c
+      body: |
+        Switch from internally defined Context to LogContext.
+        Stop deep importing lodash.
+        Rename card/cards to contract/contracts.
+      footer:
+        Change-type: major
+        change-type: major
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 2.0.0
+  date: 2021-12-24T01:53:32.522Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-logger to ^4.0.5'
       hash: ca967ebfe64452c843fcacbc3e30fc88d2a4de6a
       body: ''
