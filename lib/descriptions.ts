@@ -1,5 +1,10 @@
 import { metrics } from '@balena/node-metrics-gatherer';
-import { Histogram, MeasureMetricNames, Metric, MetricNames } from './types';
+import type {
+	Histogram,
+	MeasureMetricNames,
+	Metric,
+	MetricNames,
+} from './types';
 import * as utils from './utils';
 
 /**
@@ -44,7 +49,7 @@ const queryLatencyBuckets = metrics.client
  * List of names for all defined metrics
  */
 export const Names: MetricNames = {
-	card: {
+	contract: {
 		upsert: {
 			total: 'jf_card_upsert_total',
 		},
@@ -95,24 +100,24 @@ export const Names: MetricNames = {
  */
 const counters: Metric[] = [
 	{
-		name: Names.card.upsert.total,
-		description: 'number of cards upserted',
+		name: Names.contract.upsert.total,
+		description: 'number of contracts upserted',
 	},
 	{
-		name: Names.card.insert.total,
-		description: 'number of cards inserted',
+		name: Names.contract.insert.total,
+		description: 'number of contracts inserted',
 	},
 	{
-		name: Names.card.read.total,
-		description: 'number of cards read from database/cache',
+		name: Names.contract.read.total,
+		description: 'number of contracts read from database/cache',
 	},
 	{
-		name: Names.card.patch.total,
-		description: 'number of card patch requests',
+		name: Names.contract.patch.total,
+		description: 'number of contract patch requests',
 	},
 	{
-		name: Names.card.patch.failureTotal,
-		description: 'number of card patch failures',
+		name: Names.contract.patch.failureTotal,
+		description: 'number of contract patch failures',
 	},
 	{
 		name: Names.mirror.total,
@@ -283,8 +288,8 @@ const histograms: Histogram[] = [
 		buckets: queryLatencyBuckets,
 	},
 	{
-		name: Names.card.patch.durationSeconds,
-		description: 'histogram of durations taken to patch cards in seconds',
+		name: Names.contract.patch.durationSeconds,
+		description: 'histogram of durations taken to patch contracts in seconds',
 		buckets: latencyBuckets,
 	},
 ];

@@ -1,4 +1,4 @@
-import { Contract } from '@balena/jellyfish-types/build/core';
+import type { Contract } from '@balena/jellyfish-types/build/core';
 
 /**
  * Common metric definition
@@ -29,9 +29,9 @@ export interface MetricName {
 }
 
 /**
- * Card operation metric names
+ * Contract operation metric names
  */
-export interface CardMetricNames extends Pick<MetricName, 'total'> {}
+export interface ContractMetricNames extends Pick<MetricName, 'total'> {}
 
 /**
  * Worker metric names
@@ -68,10 +68,10 @@ export interface MeasureMetricNames
  * Definition of full list of metric names
  */
 export interface MetricNames {
-	card: {
-		upsert: CardMetricNames;
-		insert: CardMetricNames;
-		read: CardMetricNames;
+	contract: {
+		upsert: ContractMetricNames;
+		insert: ContractMetricNames;
+		read: ContractMetricNames;
 		patch: MeasureMetricNames;
 	};
 	worker: WorkerMetricNames;
@@ -97,10 +97,4 @@ export interface StreamChange {
 	type: string;
 	before: Contract;
 	after: Contract;
-}
-
-// TS-TODO: Replace with proper Context type
-export interface Context {
-	id: string;
-	[key: string]: any;
 }
