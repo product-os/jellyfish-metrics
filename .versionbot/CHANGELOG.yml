@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update external-non-major'
+      hash: 4a4a167a204685df4df5666821a49cbd9cd6dcb7
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 2.0.1
+  date: 2021-12-25T00:44:07.575Z
+- commits:
     - subject: 'Clean up types, rename card to contract'
       hash: edc235c1e853562774dc150f6e5d80eb903c077c
       body: |
