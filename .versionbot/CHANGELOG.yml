@@ -1,4 +1,17 @@
 - commits:
+    - subject: Handles nulls on mark read
+      hash: 2e8dfe0b0e3082995952e4bcf26acfe12c323e00
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 2.0.12
+  date: 2022-01-03T07:32:34.944Z
+- commits:
     - subject: Allow partial contracts
       hash: 14bc0363e150513c342c5465b435b5c5cbedcccc
       body: ''
