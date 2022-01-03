@@ -1,4 +1,17 @@
 - commits:
+    - subject: Allow partial contracts
+      hash: 14bc0363e150513c342c5465b435b5c5cbedcccc
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 2.0.11
+  date: 2022-01-03T06:58:45.939Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-logger to ^4.0.11'
       hash: 2f80e57e2beec442549bd50522dca3c60544bff0
       body: ''
