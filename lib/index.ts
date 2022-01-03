@@ -183,9 +183,9 @@ export function markContractUpsert(contract: Contract): void {
  * ```
  */
 export function markContractReadFromDatabase(
-	contract: Partial<Contract>,
+	contract: Partial<Contract> | null,
 ): void {
-	const type = contract.type?.split('@')[0] || 'unknown';
+	const type = contract?.type?.split('@')[0] || 'unknown';
 	metrics.inc(Names.contract.read.total, 1, {
 		type,
 		source: 'database',
@@ -203,8 +203,10 @@ export function markContractReadFromDatabase(
  * markContractReadFromCache(contract);
  * ```
  */
-export function markContractReadFromCache(contract: Partial<Contract>): void {
-	const type = contract.type?.split('@')[0] || 'unknown';
+export function markContractReadFromCache(
+	contract: Partial<Contract> | null,
+): void {
+	const type = contract?.type?.split('@')[0] || 'unknown';
 	metrics.inc(Names.contract.read.total, 1, {
 		type,
 		source: 'cache',
