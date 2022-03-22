@@ -1,1 +1,6 @@
-type: 'node'
+type: "node"
+upstream:
+  - repo: "jellyfish-environment"
+    url: "https://github.com/product-os/jellyfish-environment"
+  - repo: "jellyfish-logger"
+    url: "https://github.com/product-os/jellyfish-logger"
