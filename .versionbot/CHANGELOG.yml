@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update typedoc from 0.22.13 to 0.22.14
+      hash: 4fbcdfec0dd3242cf86cf0855289d96b59abd508
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 2.0.57
+  title: "'Update typedoc from 0.22.13 to 0.22.14'"
+  date: 2022-04-07T04:50:40.323Z
+- commits:
     - subject: Update @balena/node-metrics-gatherer from 5.7.5 to 6.0.1
       hash: a015e149337559b0055294df2c111c1c04f200f2
       body: ""
