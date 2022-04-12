@@ -121,7 +121,7 @@ export function startServer(logContext: LogContext, port: number): Server {
 	server.on('listening', () => {
 		logger.info(
 			logContext,
-			`Metrics server listening on port ${server.address()}`,
+			`Metrics server listening on port ${JSON.stringify(server.address())}`,
 		);
 	});
 	server.on('error', (err: NodeJS.ErrnoException) => {
@@ -130,10 +130,10 @@ export function startServer(logContext: LogContext, port: number): Server {
 				logContext,
 				`Port ${port} is in use, starting metrics server on a random port`,
 			);
-			server.listen(0);
+			server.listen(0, '0.0.0.0');
 		}
 	});
-	server.listen(port);
+	server.listen(port, '0.0.0.0');
 	return server;
 }
 
