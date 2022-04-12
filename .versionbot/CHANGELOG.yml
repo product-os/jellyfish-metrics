@@ -1,4 +1,18 @@
 - commits:
+    - subject: Bind to IPv4 ( 0.0.0.0 ); fix listening port print to console
+      hash: 744da15b0cb69ff21b739c6c58d58b274029854b
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ramiro Gonzalez ramiro.gonzalez@balena.io
+        signed-off-by: Ramiro Gonzalez ramiro.gonzalez@balena.io
+      author: Ramiro González Maciel
+      nested: []
+  version: 2.0.60
+  title: "'Bind to IPv4 ( 0.0.0.0 ); fix listening port print to console'"
+  date: 2022-04-11T15:18:40.426Z
+- commits:
     - subject: Update internal-patch
       hash: 3a879ff17259854c775e200bad6e90bbc1321c72
       body: ""
