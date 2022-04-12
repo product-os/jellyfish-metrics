@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update typedoc from 0.22.14 to 0.22.15
+      hash: 231b965916f8f94c0f686b306cf9d4684c62cec4
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 2.0.61
+  title: "'Update typedoc from 0.22.14 to 0.22.15'"
+  date: 2022-04-12T00:07:00.232Z
+- commits:
     - subject: Bind to IPv4 ( 0.0.0.0 ); fix listening port print to console
       hash: 744da15b0cb69ff21b739c6c58d58b274029854b
       body: ""
