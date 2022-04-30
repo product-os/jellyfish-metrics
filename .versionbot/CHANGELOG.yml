@@ -1,4 +1,24 @@
 - commits:
+    - subject: Update external-non-major
+      hash: ee29168fc95788ce5188bed68de0fbc1921db139
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+    - subject: Update typescript from 4.6.3 to 4.6.4
+      hash: abfcaa27447cb76002ebdb4df1070a2a3bb90906
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 2.0.71
+  title: "'Update external-non-major'"
+  date: 2022-04-30T00:25:44.384Z
+- commits:
     - subject: Update @balena/jellyfish-environment from 10.0.2 to 11.0.0
       hash: 89eee6e538a42706eb199c5c34041eee4de6429e
       body: ""
