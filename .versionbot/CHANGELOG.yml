@@ -1,4 +1,18 @@
 - commits:
+    - subject: Log on unknown contract types
+      hash: 4c76a3ad78980e25d563f3acfb2bac1e6f0d859f
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 2.0.86
+  title: "'Log on unknown contract types'"
+  date: 2022-06-09T09:15:06.445Z
+- commits:
     - subject: Update external-major (external major bumps)
       hash: 439646279c6c077ba110a9d955f4ff6af45e0cb8
       body: ""
