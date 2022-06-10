@@ -186,20 +186,6 @@ export function markContractReadFromDatabase(
 	contract: Partial<Contract> | null,
 ): void {
 	const type = contract?.type?.split('@')[0] || 'unknown';
-
-	// TODO: Remove after fixing unknown type issue
-	if (type === 'unknown') {
-		logger.info(
-			{
-				id: 'metrics-debug',
-			},
-			'Unknown type in metrics',
-			{
-				contract,
-			},
-		);
-	}
-
 	metrics.inc(Names.contract.read.total, 1, {
 		type,
 		source: 'database',
@@ -221,20 +207,6 @@ export function markContractReadFromCache(
 	contract: Partial<Contract> | null,
 ): void {
 	const type = contract?.type?.split('@')[0] || 'unknown';
-
-	// TODO: Remove after fixing unknown type issue
-	if (type === 'unknown') {
-		logger.info(
-			{
-				id: 'metrics-debug',
-			},
-			'Unknown type in metrics',
-			{
-				contract,
-			},
-		);
-	}
-
 	metrics.inc(Names.contract.read.total, 1, {
 		type,
 		source: 'cache',
