@@ -1,4 +1,18 @@
 - commits:
+    - subject: Drop debug logs
+      hash: 06ab6dfc91e24bb167ea6eddff99c1d052b78150
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 2.0.87
+  title: "'Drop debug logs'"
+  date: 2022-06-10T04:49:21.304Z
+- commits:
     - subject: Log on unknown contract types
       hash: 4c76a3ad78980e25d563f3acfb2bac1e6f0d859f
       body: ""
