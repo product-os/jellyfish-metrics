@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update typescript from 4.7.3 to 4.7.4
+      hash: 5aca333de0d7b106526aee50e5b13e36a1c87b9d
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.88
+  title: "'Update typescript from 4.7.3 to 4.7.4'"
+  date: 2022-06-17T20:28:55.468Z
+- commits:
     - subject: Drop debug logs
       hash: 06ab6dfc91e24bb167ea6eddff99c1d052b78150
       body: ""
