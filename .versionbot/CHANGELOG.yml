@@ -1,4 +1,18 @@
 - commits:
+    - subject: Bump dependencies
+      hash: c5b876b932b984bf91b3945d5338762d2bc67311
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 2.0.90
+  title: "'Bump dependencies'"
+  date: 2022-06-20T00:16:59.483Z
+- commits:
     - subject: Drop @balena/jellyfish-config
       hash: 39f278de88aa39847e28834f18a263d8042b671f
       body: ""
