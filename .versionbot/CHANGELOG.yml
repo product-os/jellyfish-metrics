@@ -1,4 +1,18 @@
 - commits:
+    - subject: Drop jellyfish-types
+      hash: 8990954b0953d82cb15f5bd9f6bf4eed2be3bca7
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 2.0.96
+  title: "'Drop jellyfish-types'"
+  date: 2022-07-07T04:17:04.440Z
+- commits:
     - subject: Update typedoc from 0.23.3 to 0.23.5
       hash: 6017a9e106eb74813216d1cd21521a0d8311da27
       body: ""
