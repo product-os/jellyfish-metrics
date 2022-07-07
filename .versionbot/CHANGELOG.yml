@@ -1,4 +1,24 @@
 - commits:
+    - subject: Update typedoc from 0.23.3 to 0.23.5
+      hash: 6017a9e106eb74813216d1cd21521a0d8311da27
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+    - subject: Update typedoc from 0.23.2 to 0.23.3
+      hash: d7f8d036105dd2109e47d3527fd496510f10fc6b
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.95
+  title: "'Update typedoc from 0.23.3 to 0.23.5'"
+  date: 2022-07-02T19:47:33.082Z
+- commits:
     - subject: Update @balena/jellyfish-environment from 12.0.12 to 12.1.0
       hash: 892ec49d04270fbb7b8e729dd23a848652d7d774
       body: ""
