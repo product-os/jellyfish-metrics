@@ -1,5 +1,3 @@
-import type { Contract } from '@balena/jellyfish-types/build/core';
-
 /**
  * Common metric definition
  */
@@ -95,6 +93,6 @@ export interface MetricNames {
 
 export interface StreamChange {
 	type: string;
-	before: Contract;
-	after: Contract;
+	before: any;
+	after: any;
 }

@@ -1,7 +1,6 @@
 import { defaultEnvironment } from '@balena/jellyfish-environment';
 import { getLogger } from '@balena/jellyfish-logger';
 import type { LogContext } from '@balena/jellyfish-logger';
-import type { Contract } from '@balena/jellyfish-types/build/core';
 import { metrics } from '@balena/node-metrics-gatherer';
 import type { LabelSet } from '@balena/node-metrics-gatherer/out/types';
 import express from 'express';
@@ -55,9 +54,8 @@ async function measureAsync<TResult>(
 	const result = await fn();
 	const end = new Date();
 	const duration = utils.toSeconds(end.getTime() - start.getTime());
-	const histogramLabels: LabelSet = _.isFunction(labels)
-		? labels(result)
-		: labels;
+	const histogramLabels: LabelSet =
+		typeof labels === 'function' ? labels(result) : labels;
 	metrics.histogram(name, duration, histogramLabels);
 	return result;
 }
@@ -148,7 +146,7 @@ export function startServer(logContext: LogContext, port: number): Server {
  * markContractInsert(contract);
  * ```
  */
-export function markContractInsert(contract: Contract): void {
+export function markContractInsert(contract: any): void {
 	metrics.inc(Names.contract.insert.total, 1, {
 		type: contract.type.split('@')[0],
 	});
@@ -165,7 +163,7 @@ export function markContractInsert(contract: Contract): void {
  * markContractUpsert(contract);
  * ```
  */
-export function markContractUpsert(contract: Contract): void {
+export function markContractUpsert(contract: any): void {
 	metrics.inc(Names.contract.upsert.total, 1, {
 		type: contract.type.split('@')[0],
 	});
@@ -182,9 +180,7 @@ export function markContractUpsert(contract: Contract): void {
  * markContractReadFromDatabase(contract);
  * ```
  */
-export function markContractReadFromDatabase(
-	contract: Partial<Contract> | null,
-): void {
+export function markContractReadFromDatabase(contract: any | null): void {
 	const type = contract?.type?.split('@')[0] || 'unknown';
 	metrics.inc(Names.contract.read.total, 1, {
 		type,
@@ -203,9 +199,7 @@ export function markContractReadFromDatabase(
  * markContractReadFromCache(contract);
  * ```
  */
-export function markContractReadFromCache(
-	contract: Partial<Contract> | null,
-): void {
+export function markContractReadFromCache(contract: any | null): void {
 	const type = contract?.type?.split('@')[0] || 'unknown';
 	metrics.inc(Names.contract.read.total, 1, {
 		type,
@@ -579,7 +573,7 @@ export async function measureContractPatch(
 ): Promise<any> {
 	const result = await getAsyncMeasureFn(
 		Names.contract.patch,
-		(contract: Contract) => {
+		(contract: any) => {
 			return {
 				type: contract.type.split('@')[0],
 			};

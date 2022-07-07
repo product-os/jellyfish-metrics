@@ -1,5 +1,4 @@
 import { defaultEnvironment } from '@balena/jellyfish-environment';
-import type { Contract } from '@balena/jellyfish-types/build/core';
 import { get, IncomingMessage, Server } from 'http';
 import _ from 'lodash';
 import { v4 as uuidv4 } from 'uuid';
@@ -44,13 +43,13 @@ interface TestContext {
 	action: string;
 	table: string;
 	milliseconds: number;
-	contract: Contract;
+	contract: any;
 	contractType: string;
 	change: StreamChange;
 	func: () => Promise<string>;
 	failFunc: () => Promise<unknown>;
 	actor: string;
-	contractPatchFunc: () => Promise<Contract>;
+	contractPatchFunc: () => Promise<any>;
 	server: Server;
 }
 
@@ -60,7 +59,7 @@ const logContext: LogContext = {
 };
 
 // Fake contract for tests
-const contract: Contract = {
+const contract: any = {
 	id: uuidv4(),
 	version: '1.0.0',
 	slug: `contract-${uuidv4()}`,
@@ -103,7 +102,7 @@ const testContext: TestContext = {
 		throw new Error('test');
 	},
 	actor: actorFromContext(logContext),
-	contractPatchFunc: async (): Promise<Contract> => {
+	contractPatchFunc: async (): Promise<any> => {
 		return Promise.resolve(contract);
 	},
 	server: startServer(logContext, defaultEnvironment.metrics.ports.app),
