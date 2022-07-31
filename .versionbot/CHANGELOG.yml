@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update ts-jest from 28.0.5 to 28.0.7
+      hash: cf022c72e3f48c2581ef85c96d21b01e3781afce
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.111
+  title: "'Update ts-jest from 28.0.5 to 28.0.7'"
+  date: 2022-07-31T22:33:44.106Z
+- commits:
     - subject: Update lint-staged from 13.0.2 to 13.0.3
       hash: 56f7b147b3dc3d81f703b38a5b9849c053b18071
       body: ""
