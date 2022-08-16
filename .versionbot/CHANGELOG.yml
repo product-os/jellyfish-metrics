@@ -1,4 +1,18 @@
 - commits:
+    - subject: Remove secrets from gitignore
+      hash: 48815a5ef7281b0e6aa711998f44edd23b408b7a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@monarci.com>
+        signed-off-by: Josh Bowling <josh@monarci.com>
+      author: Josh Bowling
+      nested: []
+  version: 2.0.121
+  title: "'Remove secrets from gitignore'"
+  date: 2022-08-16T05:56:26.840Z
+- commits:
     - subject: Update @balena/jellyfish-logger from 5.1.26 to 5.1.28
       hash: 263c78c50c5ca64526aa853882fbdd530c90f6e6
       body: ""
