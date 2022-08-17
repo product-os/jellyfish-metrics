@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-environment from 12.3.6 to 13.0.1
+      hash: f9313bdb472ce9f12d0557cfb8b79cfc9b70d4b8
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.122
+  title: "'Update @balena/jellyfish-environment from 12.3.6 to 13.0.1'"
+  date: 2022-08-17T03:10:11.747Z
+- commits:
     - subject: Remove secrets from gitignore
       hash: 48815a5ef7281b0e6aa711998f44edd23b408b7a
       body: ""
