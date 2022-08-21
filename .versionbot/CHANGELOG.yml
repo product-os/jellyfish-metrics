@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @types/node from 16.11.51 to 16.11.52
+      hash: ce2433e7b15fde82d5f88942b470e15c983b3099
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.131
+  title: "'Update @types/node from 16.11.51 to 16.11.52'"
+  date: 2022-08-21T21:51:56.475Z
+- commits:
     - subject: Update @balena/jellyfish-logger from 5.1.33 to 5.1.37
       hash: 9e823ea3269e87faa68eb9cfb9b53f983f2c2d84
       body: ""
