@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @types/node from 16.11.56 to 16.11.58
+      hash: 7324ca821bf46ed47c0d7f86f883d94a5a49f650
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.144
+  title: "'Update @types/node from 16.11.56 to 16.11.58'"
+  date: 2022-09-10T00:20:08.740Z
+- commits:
     - subject: Update typedoc from 0.23.11 to 0.23.14
       hash: 94aece81e4f3722bda8630f7ab20f6bd9633ea1c
       body: ""
