@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update typescript to 4.8.3
+      hash: d38680a9029e7243179f05f337f9cc4543fc0b1a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@monarci.com>
+        signed-off-by: Josh Bowling <josh@monarci.com>
+      author: Josh Bowling
+      nested: []
+  version: 2.0.146
+  title: "'Update typescript to 4.8.3'"
+  date: 2022-09-10T02:25:05.005Z
+- commits:
     - subject: Update @balena/jellyfish-environment from 13.0.9 to 13.0.10
       hash: c55ceb6d4a567935ed71bff367548c9c491ac48f
       body: ""
