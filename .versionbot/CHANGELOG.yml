@@ -1,4 +1,18 @@
 - commits:
+    - subject: "CI: Move to Flowzone"
+      hash: 8563f48441c719bcbf6f574fd7f5b469a16e2c84
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@monarci.com>
+        signed-off-by: Josh Bowling <josh@monarci.com>
+      author: Josh Bowling
+      nested: []
+  version: 2.0.160
+  title: ""
+  date: 2022-09-13T03:02:38.796Z
+- commits:
     - subject: Update @balena/jellyfish-logger from 5.1.57 to 5.1.59
       hash: 18ad0da531e41938473fac3b4e9d16b5f926fb5b
       body: ""
