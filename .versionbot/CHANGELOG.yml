@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-environment from 14.0.0 to 14.0.3
+      hash: f2d9eeefca8d41677a3f0091a9f8dacc95e7c780
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.161
+  title: ""
+  date: 2022-09-13T15:05:19.649Z
+- commits:
     - subject: "CI: Move to Flowzone"
       hash: 8563f48441c719bcbf6f574fd7f5b469a16e2c84
       body: ""
