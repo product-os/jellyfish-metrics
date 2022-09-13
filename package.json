@@ -6,7 +6,7 @@
     "url": "https://github.com/product-os/jellyfish-metrics.git"
   },
   "engines": {
-    "node": ">=12.15.0"
+    "node": "^16.0.0"
   },
   "description": "Metrics library for Jellyfish",
   "main": "build/index.js",
