@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @types/express from 4.17.13 to 4.17.14
+      hash: 2fcb48a0dc8d4c8e6d9ea9fc683d7d27d2e46df8
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.165
+  title: ""
+  date: 2022-09-17T01:04:42.925Z
+- commits:
     - subject: Update @balena/jellyfish-logger from 5.1.63 to 5.1.65
       hash: 00a6d9d7338fd4cd46585c02b8cb9dba166ce91a
       body: ""
