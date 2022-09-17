@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @types/jest from 29.0.1 to 29.0.3
+      hash: a972104c5357417b17ad81dd54b6bbaeca06511e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.166
+  title: ""
+  date: 2022-09-17T01:09:43.492Z
+- commits:
     - subject: Update @types/express from 4.17.13 to 4.17.14
       hash: 2fcb48a0dc8d4c8e6d9ea9fc683d7d27d2e46df8
       body: ""
