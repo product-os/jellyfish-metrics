@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-environment from 14.0.7 to 14.0.8
+      hash: f1eaddf3db958a0807da1ea94de2eb152050bd3e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.180
+  title: ""
+  date: 2022-09-19T07:13:04.241Z
+- commits:
     - subject: Add CodeQL workflow
       hash: c04451d4b28eae9f1632b0d81bba89ce81923b09
       body: ""
