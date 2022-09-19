@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-environment from 14.0.6 to 14.0.7
+      hash: 688c7057ede51fde6c48bd31e3ae3c4bf641d326
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.177
+  title: ""
+  date: 2022-09-19T04:24:38.549Z
+- commits:
     - subject: "Dev: Add .nvmrc"
       hash: 7b4361611571696657459bbabc79a21717f57f3f
       body: ""
