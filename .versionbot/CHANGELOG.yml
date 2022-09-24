@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-environment from 14.0.12 to 14.0.13
+      hash: 326ab8dac70c903e5068ef49712bb32bdfa187a5
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.191
+  title: ""
+  date: 2022-09-24T13:43:34.406Z
+- commits:
     - subject: Update ts-jest from 29.0.1 to 29.0.2
       hash: f923e686b8dca454eca1789535f7e010180c0523
       body: ""
