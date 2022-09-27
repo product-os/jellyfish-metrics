@@ -167,7 +167,7 @@ async function getMetrics(): Promise<{
 }> {
 	return new Promise((resolve, reject) => {
 		const options = {
-			hostname: 'localhost',
+			hostname: '127.0.0.1',
 			port: defaultEnvironment.metrics.ports.app,
 			path: '/metrics',
 			auth: `monitor:${defaultEnvironment.metrics.token}`,
