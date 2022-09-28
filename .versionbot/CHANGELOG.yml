@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-environment from 14.0.15 to 14.0.17
+      hash: b52fd615d4a69590478fe9a65258cf036e3518be
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.200
+  title: ""
+  date: 2022-09-28T11:27:20.521Z
+- commits:
     - subject: Add missing lodash types package
       hash: a904a6134bc0751d104451028f62deae79aa59f0
       body: ""
