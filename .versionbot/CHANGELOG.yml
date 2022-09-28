@@ -1,4 +1,18 @@
 - commits:
+    - subject: Add missing lodash types package
+      hash: a904a6134bc0751d104451028f62deae79aa59f0
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@monarci.com>
+        signed-off-by: Josh Bowling <josh@monarci.com>
+      author: Josh Bowling
+      nested: []
+  version: 2.0.199
+  title: ""
+  date: 2022-09-28T04:08:42.474Z
+- commits:
     - subject: Use ipv4 address for test http client
       hash: afec84b30016e874eeab940f268ade845aecf972
       body: ""
