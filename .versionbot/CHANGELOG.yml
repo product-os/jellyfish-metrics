@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-logger from 5.1.101 to 5.1.102
+      hash: 388c725b1f0781f41b3e51d39e84071b61fc0ac5
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.213
+  title: ""
+  date: 2022-10-01T15:19:20.355Z
+- commits:
     - subject: Update jest monorepo
       hash: 6ffa0248e339d525baf8f1ca22a1de361ce13a8f
       body: ""
