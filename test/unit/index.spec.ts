@@ -30,8 +30,8 @@ import {
 	measureMirror,
 	measureTranslate,
 	startServer,
-} from './index';
-import type { StreamChange } from './types';
+} from '../../lib';
+import type { StreamChange } from '../../lib/types';
 import type { LogContext } from '@balena/jellyfish-logger';
 
 /**
