@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-logger from 5.1.102 to 5.1.103
+      hash: edd1aca5ffae3f42caa63e6b79f25da19688bb22
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.217
+  title: ""
+  date: 2022-10-03T14:07:46.884Z
+- commits:
     - subject: "CI: Move tests to test/unit"
       hash: 29737ce4a762f73d9cc559335ac08643ab4b8c02
       body: ""
