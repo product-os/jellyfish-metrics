@@ -1,4 +1,18 @@
 - commits:
+    - subject: "Dev: Remove tsx from lint-staged"
+      hash: 1af10e92ff07a940b52729154f9c459205bcce33
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@monarci.com>
+        signed-off-by: Josh Bowling <josh@monarci.com>
+      author: Josh Bowling
+      nested: []
+  version: 2.0.233
+  title: ""
+  date: 2022-10-08T13:45:36.351Z
+- commits:
     - subject: Update @balena/jellyfish-environment from 14.3.8 to 14.3.9
       hash: bc695198479e99be73efc527156b4d520e8e816a
       body: ""
