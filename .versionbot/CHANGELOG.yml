@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @types/node from 16.11.63 to 16.11.64
+      hash: 032a1ac181c5a1bd8f5658cb34e9357ac079c523
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.227
+  title: ""
+  date: 2022-10-08T01:30:26.160Z
+- commits:
     - subject: Update @types/jest from 29.1.1 to 29.1.2
       hash: 945cc72154c4bb3de8d2c32d15d286c9a6ee7fbe
       body: ""
