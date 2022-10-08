@@ -49,7 +49,7 @@
     "@balena/jellyfish-environment": "^14.3.10",
     "@balena/jellyfish-logger": "^5.1.111",
     "@balena/node-metrics-gatherer": "^6.0.3",
-    "express": "^4.18.1",
+    "express": "^4.18.2",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
