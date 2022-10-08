@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-environment from 14.3.9 to 14.3.10
+      hash: 3283bba4868cbcd7d8d7928bba49d0ae54e81d4f
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.234
+  title: ""
+  date: 2022-10-08T16:00:26.534Z
+- commits:
     - subject: "Dev: Remove tsx from lint-staged"
       hash: 1af10e92ff07a940b52729154f9c459205bcce33
       body: ""
