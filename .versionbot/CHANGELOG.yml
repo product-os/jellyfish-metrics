@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update express from 4.18.1 to 4.18.2
+      hash: 51e3fb5ffde58738878e8eebf93a4bb37ca7ef3f
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.236
+  title: ""
+  date: 2022-10-08T20:44:38.139Z
+- commits:
     - subject: Update @balena/jellyfish-logger from 5.1.106 to 5.1.111
       hash: cd3ce869f12ab985159852a8fb93af451b1c24d6
       body: ""
