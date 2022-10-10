@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-environment from 14.3.10 to 14.3.11
+      hash: b925914f0af271a441e3ebb8f1da07d3da840c47
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.239
+  title: ""
+  date: 2022-10-10T03:58:51.335Z
+- commits:
     - subject: "CI: Use JSON for Jest config"
       hash: 08f6cf51c14610647d974105528316ff79faf6bc
       body: ""
