@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @types/node from 16.11.64 to 16.11.65
+      hash: e3c5689a066a04973fa348aaaedb10548e9e538b
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.245
+  title: ""
+  date: 2022-10-15T00:16:08.747Z
+- commits:
     - subject: Update typedoc from 0.23.15 to 0.23.16
       hash: 8c935a4227e278242e797c069befe18c20725341
       body: ""
@@ -5858,8 +5870,8 @@
     - subject: "build(deps): bump hosted-git-info from 2.8.8 to 2.8.9"
       hash: 9b77c46e112996f1250f5f3d185de3f954f18ae7
       body: >
-        Bumps [hosted-git-info](https://github.com/npm/hosted-git-info) from
-        2.8.8 to 2.8.9.
+        Bumps [hosted-git-info](https://github.com/npm/hosted-git-info) from 2.8.8
+        to 2.8.9.
 
         - [Release notes](https://github.com/npm/hosted-git-info/releases)
 
