@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-environment from 14.4.5 to 14.4.7
+      hash: c88c737ceccd32b30416855774a3f32456057d54
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.264
+  title: ""
+  date: 2022-10-24T04:59:22.090Z
+- commits:
     - subject: "Docs: Remove badge from readme"
       hash: 5b9e861246210a547969515c955786a7a6b279f5
       body: ""
