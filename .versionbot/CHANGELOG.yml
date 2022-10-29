@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependencies (external major bumps)
+      hash: f1af14d6ea2baef8ee82081a671d0c6c9fe2d5b6
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.274
+  title: ""
+  date: 2022-10-29T03:23:42.684Z
+- commits:
     - subject: Update @balena/jellyfish-environment from 14.6.1 to 14.6.2
       hash: 46314d1bf2f7a77c96a5ed56a7866527a0bee2a3
       body: ""
