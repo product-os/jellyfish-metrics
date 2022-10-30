@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @types/node from 18.11.7 to 18.11.8
+      hash: 6c4ff56f0e5c025905e2f977387d7af0506f889a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.275
+  title: ""
+  date: 2022-10-30T22:40:16.289Z
+- commits:
     - subject: Update dependencies (external major bumps)
       hash: f1af14d6ea2baef8ee82081a671d0c6c9fe2d5b6
       body: ""
