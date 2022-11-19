@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-environment from 14.6.10 to 14.6.11
+      hash: 31b47de2c95e06873d7623a7f639b62e24f22907
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.292
+  title: ""
+  date: 2022-11-19T08:10:49.679Z
+- commits:
     - subject: Update typescript from 4.8.4 to 4.9.3
       hash: 6d3636eb45ef60a525008da789a5f06bc06b2330
       body: ""
