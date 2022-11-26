@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update prettier from 2.7.1 to 2.8.0
+      hash: 4cbc730578cea5988ce10c8ea63621631d8d0e26
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 2.0.296
+  title: ""
+  date: 2022-11-26T03:54:46.282Z
+- commits:
     - subject: Update @balena/jellyfish-environment from 14.6.11 to 14.6.13
       hash: 8a681202a4e5bee93049d1202296db766f595362
       body: ""
