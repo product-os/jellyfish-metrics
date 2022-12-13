@@ -1,4 +1,19 @@
 - commits:
+    - subject: Update dependency @types/uuid to 9.0.0
+      hash: 4bb371fe3739414dd680838fd74e8fe9adcb6c12
+      body: |
+        Update @types/uuid to 9.0.0
+
+        Update @types/uuid from 8.3.4 to 9.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 2.1.1
+  title: ""
+  date: 2022-12-13T05:48:21.795Z
+- commits:
     - subject: Update Node.js to 18.12.1
       hash: 8fae0804d95f0e858a23a9a9fb44a044ebc09c8a
       body: |
