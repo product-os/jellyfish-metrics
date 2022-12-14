@@ -1,4 +1,19 @@
 - commits:
+    - subject: Pin dependencies
+      hash: f30dcb3f7f27a9fd3180c46dc900a8cf3a39e6c9
+      body: |
+        Update actions/checkout to
+
+        Update actions/checkout from 3 to
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Renovate Bot
+      nested: []
+  version: 2.2.0
+  title: ""
+  date: 2022-12-14T00:29:57.071Z
+- commits:
     - subject: Update dependency @types/uuid to 9.0.0
       hash: 4bb371fe3739414dd680838fd74e8fe9adcb6c12
       body: |
