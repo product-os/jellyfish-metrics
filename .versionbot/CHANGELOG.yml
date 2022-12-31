@@ -1,4 +1,16 @@
 - commits:
+    - subject: Drop uuid
+      hash: da7d60e47a1c43623c35dccbb5559fab2b2f054b
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Josh Bowling
+      nested: []
+  version: 2.3.1
+  title: ""
+  date: 2022-12-31T13:26:58.073Z
+- commits:
     - subject: Update github/codeql-action digest to 959cbb7
       hash: e25d1b211eb508e9ed31e1f552de0f75d83cf9ac
       body: |
