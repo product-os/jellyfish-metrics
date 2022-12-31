@@ -1,7 +1,7 @@
 import { defaultEnvironment } from '@balena/jellyfish-environment';
 import { get, IncomingMessage, Server } from 'http';
 import _ from 'lodash';
-import { v4 as uuidv4 } from 'uuid';
+import { randomUUID } from 'node:crypto';
 import {
 	actorFromContext,
 	initExpress,
@@ -55,14 +55,14 @@ interface TestContext {
 
 // Fake application context
 const logContext: LogContext = {
-	id: `metrics-${uuidv4()}`,
+	id: `metrics-${randomUUID()}`,
 };
 
 // Fake contract for tests
 const contract: any = {
-	id: uuidv4(),
+	id: randomUUID(),
 	version: '1.0.0',
-	slug: `contract-${uuidv4()}`,
+	slug: `contract-${randomUUID()}`,
 	type: 'contract@1.0.0',
 	tags: [],
 	markers: [],
