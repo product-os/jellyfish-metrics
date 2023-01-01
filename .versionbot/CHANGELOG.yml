@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update usage example
+      hash: 0ebaf12436c46990630eec541fe193cc7b5d2c05
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Josh Bowling
+      nested: []
+  version: 2.3.2
+  title: ""
+  date: 2023-01-01T09:55:26.033Z
+- commits:
     - subject: Drop uuid
       hash: da7d60e47a1c43623c35dccbb5559fab2b2f054b
       body: ""
