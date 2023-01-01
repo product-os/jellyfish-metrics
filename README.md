@@ -7,14 +7,14 @@ Jellyfish production metrics can be found in [this dashboard](https://monitor.ba
 
 Below is an example how to use this library:
 
-```js
-const metrics = require('@balena/jellyfish-metrics')
+```typescript
+import * as metrics from '@balena/jellyfish-metrics';
 
 // Start server to expose gathered metrics data.
-metrics.startServer(context, portNumber)
+metrics.startServer(context, portNumber);
 
 // Mark that a card was read from the database.
-metrics.markCardReadFromDatabase(card)
+metrics.markCardReadFromDatabase(card);
 ```
 
 # Documentation
