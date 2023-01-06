@@ -1,4 +1,19 @@
 - commits:
+    - subject: Update Node.js to 18.13.0
+      hash: dac458fdeacf3cb8c275cd1c47eea9c5b935b6ec
+      body: |
+        Update node to 18.13.0
+
+        Update node from 18.12.1 to 18.13.0
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Renovate Bot
+      nested: []
+  version: 2.5.0
+  title: ""
+  date: 2023-01-06T02:15:37.514Z
+- commits:
     - subject: Update dependency @balena/jellyfish-environment to 15.0.1
       hash: 6e77ed1e1c81c72b29522cef6fc5eb3c9743449e
       body: |
