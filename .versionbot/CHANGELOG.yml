@@ -1,4 +1,19 @@
 - commits:
+    - subject: Update dependency rimraf to 4.1.1
+      hash: 2d52bd8d83239690d61f1e2f01b1177a1896e636
+      body: |
+        Update rimraf to 4.1.1
+
+        Update rimraf from 3.0.2 to 4.1.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 2.7.1
+  title: ""
+  date: 2023-01-18T21:54:11.793Z
+- commits:
     - subject: Update github/codeql-action digest to a34ca99
       hash: 8ed3ee65c14f1fba95aa8b85836cfd921df7197c
       body: |
