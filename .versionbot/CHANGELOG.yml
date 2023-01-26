@@ -1,4 +1,19 @@
 - commits:
+    - subject: Update github/codeql-action digest to 436dbd9
+      hash: d6a6deb4074a6b870bd2440de03127b55eaa9ff6
+      body: |
+        Update github/codeql-action to
+
+        Update github/codeql-action from 2 to
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Renovate Bot
+      nested: []
+  version: 2.8.0
+  title: ""
+  date: 2023-01-26T17:52:20.596Z
+- commits:
     - subject: Update dependency rimraf to 4.1.1
       hash: 2d52bd8d83239690d61f1e2f01b1177a1896e636
       body: |
